@@ -17,9 +17,9 @@ namespace Comparers
         /// <typeparam name="T">The type of objects being compared.</typeparam>
         /// <param name="source">The source comparer.</param>
         /// <returns>A comparer that reverses the evaluation of the specified source comparer.</returns>
-        public static IComparer<T> Reverse<T>(this IComparer<T> source)
+        public static ReverseComparer<T> Reverse<T>(this IComparer<T> source)
         {
-            Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<ReverseComparer<T>>() != null);
             return new ReverseComparer<T>(source);
         }
 
@@ -31,10 +31,10 @@ namespace Comparers
         /// <param name="source">The source comparer.</param>
         /// <param name="selector">The key selector.</param>
         /// <returns>A comparer that works by comparing the results of the specified key selector.</returns>
-        public static IComparer<TSourceElement> Select<TKey, TSourceElement>(this IComparer<TKey> source, Func<TSourceElement, TKey> selector)
+        public static SelectComparer<TKey, TSourceElement> Select<TKey, TSourceElement>(this IComparer<TKey> source, Func<TSourceElement, TKey> selector)
         {
             Contract.Requires(selector != null);
-            Contract.Ensures(Contract.Result<IComparer<TSourceElement>>() != null);
+            Contract.Ensures(Contract.Result<SelectComparer<TKey, TSourceElement>>() != null);
             return new SelectComparer<TKey, TSourceElement>(source, selector);
         }
 
@@ -45,9 +45,9 @@ namespace Comparers
         /// <param name="source">The source comparer.</param>
         /// <param name="thenBy">The comparer that is used if <paramref name="source"/> determines the objects are equal.</param>
         /// <returns>A comparer that uses another comparer if the source comparer determines the objects are equal.</returns>
-        public static IComparer<T> ThenBy<T>(this IComparer<T> source, IComparer<T> thenBy)
+        public static CompoundComparer<T> ThenBy<T>(this IComparer<T> source, IComparer<T> thenBy)
         {
-            Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
             return new CompoundComparer<T>(source, thenBy);
         }
 
@@ -60,10 +60,10 @@ namespace Comparers
         /// <param name="selector">The key selector.</param>
         /// <param name="keyComparer">The key comparer.</param>
         /// <returns>A comparer that uses a key comparer if the source comparer determines the objects are equal.</returns>
-        public static IComparer<T> ThenBy<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
+        public static CompoundComparer<T> ThenBy<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
         {
             Contract.Requires(selector != null);
-            Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
             return source.ThenBy(keyComparer.Select(selector));
         }
     }

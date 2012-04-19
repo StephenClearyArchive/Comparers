@@ -15,9 +15,9 @@ namespace Comparers
         /// Gets the null comparer for this type, which evaluates all objects as equivalent.
         /// </summary>
         /// <typeparam name="T">The type of objects being compared.</typeparam>
-        public static IComparer<T> Null<T>()
+        public static NullComparer<T> Null<T>()
         {
-            Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<NullComparer<T>>() != null);
             return NullComparer<T>.Instance;
         }
 
@@ -25,9 +25,9 @@ namespace Comparers
         /// Gets the default comparer for this type.
         /// </summary>
         /// <typeparam name="T">The type of objects being compared.</typeparam>
-        public static IComparer<T> Default<T>()
+        public static DefaultComparer<T> Default<T>()
         {
-            Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<DefaultComparer<T>>() != null);
             return DefaultComparer<T>.Instance;
         }
 
@@ -44,12 +44,14 @@ namespace Comparers
             /// <param name="selector">The key selector.</param>
             /// <param name="keyComparer">The key comparer.</param>
             /// <returns>A key comparer.</returns>
-            public static IComparer<T> OrderBy<TKey>(Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
+            public static CompoundComparer<T> OrderBy<TKey>(Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
             {
                 Contract.Requires(selector != null);
-                Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+                Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
                 return Null<T>().ThenBy(selector, keyComparer);
             }
         }
+
+        // TODO: string comparers, descending
     }
 }
