@@ -160,7 +160,7 @@
   <ItemGroup>
     <Compile Include="AnonymousComparer.cs" />
     <Compile Include="ComparerExtensions.cs" />
-    <Compile Include="Comparers.cs" />
+    <Compile Include="Compare.cs" />
     <Compile Include="CompoundComparer.cs" />
     <Compile Include="DefaultComparer.cs" />
     <Compile Include="NullComparer.cs" />
