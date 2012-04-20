@@ -18,6 +18,7 @@ namespace Comparers
         public static NullComparer<T> Null<T>()
         {
             Contract.Ensures(Contract.Result<NullComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<NullComparer<T>>() == NullComparer<T>.Instance);
             return NullComparer<T>.Instance;
         }
 
@@ -28,6 +29,7 @@ namespace Comparers
         public static DefaultComparer<T> Default<T>()
         {
             Contract.Ensures(Contract.Result<DefaultComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<DefaultComparer<T>>() == DefaultComparer<T>.Instance);
             return DefaultComparer<T>.Instance;
         }
 
