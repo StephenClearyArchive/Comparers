@@ -15,7 +15,7 @@ namespace Comparers
         /// <summary>
         /// Gets or sets a delegate which compares two objects and returns a value less than 0 if its first argument is less than its second argument, 0 if its two arguments are equal, or greater than 0 if its first argument is greater than its second argument.
         /// </summary>
-        public Func<T, T, int> Compare { get; set; }
+        public new Func<T, T, int> Compare { get; set; }
 
         /// <summary>
         /// Gets or sets a delegate which calculates a hash code for an object.

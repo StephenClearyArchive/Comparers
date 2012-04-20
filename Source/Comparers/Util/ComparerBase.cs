@@ -83,7 +83,7 @@ namespace Comparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
-        bool IEqualityComparer<T>.Equals(T x, T y)
+        public bool Equals(T x, T y)
         {
             return (this as IComparer<T>).Compare(x, y) == 0;
         }
@@ -93,7 +93,7 @@ namespace Comparers.Util
         /// </summary>
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
-        int IEqualityComparer<T>.GetHashCode(T obj)
+        public int GetHashCode(T obj)
         {
             return this.DoGetHashCode(obj);
         }
@@ -104,7 +104,7 @@ namespace Comparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns>A value less than 0 if <paramref name="x"/> is less than <paramref name="y"/>, 0 if <paramref name="x"/> is equal to <paramref name="y"/>, or greater than 0 if <paramref name="x"/> is greater than <paramref name="y"/>.</returns>
-        int IComparer<T>.Compare(T x, T y)
+        public int Compare(T x, T y)
         {
             return this.DoCompare(x, y);
         }
