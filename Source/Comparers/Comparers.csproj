@@ -164,7 +164,6 @@
     <Compile Include="ComparerExtensions.cs" />
     <Compile Include="Compare.cs" />
     <Compile Include="CompoundComparer.cs" />
-    <Compile Include="IndirectComparer.cs" />
     <Compile Include="DefaultComparer.cs" />
     <Compile Include="NullComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

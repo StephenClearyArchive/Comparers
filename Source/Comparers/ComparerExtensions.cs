@@ -82,19 +82,5 @@ namespace Comparers
             Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
             return source.ThenBy(keyComparer.Select(selector).Reverse());
         }
-
-        /// <summary>
-        /// Returns a comparer for list indices that uses element comparison to order the indices.
-        /// </summary>
-        /// <typeparam name="T">The type of objects being compared.</typeparam>
-        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
-        /// <param name="list">The list in which to look up the elements.</param>
-        /// <returns>A comparer for list indices that uses element comparison to order the indices.</returns>
-        public static IndirectComparer<T> Indirect<T>(this IComparer<T> source, IList<T> list)
-        {
-            Contract.Requires(list != null);
-            Contract.Ensures(Contract.Result<IndirectComparer<T>>() != null);
-            return new IndirectComparer<T>(source, list);
-        }
     }
 }
