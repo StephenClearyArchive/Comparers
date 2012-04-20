@@ -66,5 +66,21 @@ namespace Comparers
             Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
             return source.ThenBy(keyComparer.Select(selector));
         }
+
+        /// <summary>
+        /// Returns a comparer that uses a descending key comparer if the source comparer determines the objects are equal.
+        /// </summary>
+        /// <typeparam name="T">The type of objects being compared.</typeparam>
+        /// <typeparam name="TKey">The type of key objects being compared.</typeparam>
+        /// <param name="source">The source comparer.</param>
+        /// <param name="selector">The key selector.</param>
+        /// <param name="keyComparer">The key comparer. The returned comparer applies this key comparer in reverse.</param>
+        /// <returns>A comparer that uses a key comparer if the source comparer determines the objects are equal.</returns>
+        public static CompoundComparer<T> ThenByDescending<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
+        {
+            Contract.Requires(selector != null);
+            Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
+            return source.ThenBy(keyComparer.Select(selector).Reverse());
+        }
     }
 }
