@@ -14,7 +14,7 @@ namespace Comparers
         /// <summary>
         /// Initializes a new instance of the <see cref="ReverseComparer&lt;T&gt;"/> class.
         /// </summary>
-        /// <param name="source">The source comparer.</param>
+        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         public ReverseComparer(IComparer<T> source)
             : base(source)
         {

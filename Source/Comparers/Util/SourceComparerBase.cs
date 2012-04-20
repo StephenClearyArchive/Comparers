@@ -20,7 +20,7 @@ namespace Comparers.Util
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceComparerBase&lt;T&gt;"/> class.
         /// </summary>
-        /// <param name="source">The source comparer.</param>
+        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         protected SourceComparerBase(IComparer<T> source)
         {
             this.source_ = ComparerHelpers.NormalizeDefault(source);
@@ -60,7 +60,7 @@ namespace Comparers.Util
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceComparerBase&lt;T&gt;"/> class.
         /// </summary>
-        /// <param name="source">The source comparer.</param>
+        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         protected SourceComparerBase(IComparer<TKey> source)
         {
             this.source_ = ComparerHelpers.NormalizeDefault(source);

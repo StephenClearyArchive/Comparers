@@ -20,8 +20,8 @@ namespace Comparers
         /// <summary>
         /// Initializes a new instance of the <see cref="CompoundComparer&lt;T&gt;"/> class.
         /// </summary>
-        /// <param name="source">The source comparer.</param>
-        /// <param name="thenBy">The second comparer.</param>
+        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
+        /// <param name="thenBy">The second comparer. If this is <c>null</c>, the default comparer is used.</param>
         public CompoundComparer(IComparer<T> source, IComparer<T> thenBy)
             : base(source)
         {

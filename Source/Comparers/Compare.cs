@@ -41,8 +41,8 @@ namespace Comparers
             /// Creates a key comparer.
             /// </summary>
             /// <typeparam name="TKey">The type of key objects being compared.</typeparam>
-            /// <param name="selector">The key selector.</param>
-            /// <param name="keyComparer">The key comparer.</param>
+            /// <param name="selector">The key selector. May not be <c>null</c>.</param>
+            /// <param name="keyComparer">The key comparer. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
             /// <returns>A key comparer.</returns>
             public static CompoundComparer<T> OrderBy<TKey>(Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
             {
@@ -55,8 +55,8 @@ namespace Comparers
             /// Creates a descending key comparer.
             /// </summary>
             /// <typeparam name="TKey">The type of key objects being compared.</typeparam>
-            /// <param name="selector">The key selector.</param>
-            /// <param name="keyComparer">The key comparer. The returned comparer applies this key comparer in reverse.</param>
+            /// <param name="selector">The key selector. May not be <c>null</c>.</param>
+            /// <param name="keyComparer">The key comparer. The returned comparer applies this key comparer in reverse. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
             /// <returns>A key comparer.</returns>
             public static CompoundComparer<T> OrderByDescending<TKey>(Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
             {

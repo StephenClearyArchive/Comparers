@@ -21,8 +21,8 @@ namespace Comparers
         /// <summary>
         /// Initializes a new instance of the <see cref="SelectComparer&lt;TKey, TSourceElement&gt;"/> class.
         /// </summary>
-        /// <param name="source">The source comparer.</param>
-        /// <param name="selector">The key selector.</param>
+        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
+        /// <param name="selector">The key selector. May not be <c>null</c>.</param>
         public SelectComparer(IComparer<TKey> source, Func<TSourceElement, TKey> selector)
             : base(source)
         {

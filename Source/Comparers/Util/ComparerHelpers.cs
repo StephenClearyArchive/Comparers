@@ -15,8 +15,8 @@ namespace Comparers.Util
         /// Attempts to return a hash code for the specified object, using the specified comparer. If the comparer does not support hash codes, this method will throw an exception.
         /// </summary>
         /// <typeparam name="T">The type of objects being compared.</typeparam>
-        /// <param name="comparer">The comparer to use to calculate a hash code.</param>
-        /// <param name="obj">The object for which to return a hash code.</param>
+        /// <param name="comparer">The comparer to use to calculate a hash code. May not be <c>null</c>.</param>
+        /// <param name="obj">The object for which to return a hash code. May not be <c>null</c>.</param>
         /// <returns>A hash code for the specified object.</returns>
         public static int GetHashCodeFromComparer<T>(IComparer<T> comparer, T obj)
         {
@@ -39,7 +39,7 @@ namespace Comparers.Util
         /// Converts a <c>null</c> or default comparer into a default comparer that supports hash codes.
         /// </summary>
         /// <typeparam name="T">The type of objects being compared.</typeparam>
-        /// <param name="comparer">The comparer.</param>
+        /// <param name="comparer">The comparer. May be <c>null</c>.</param>
         /// <returns>A default comparer or <paramref name="comparer"/>.</returns>
         public static IComparer<T> NormalizeDefault<T>(IComparer<T> comparer)
         {
