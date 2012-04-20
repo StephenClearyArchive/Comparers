@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+ <metadata>
+  <id>Comparers</id>
+  <version>1.0.0</version>
+  <title>Comparers</title>
+  <authors>Stephen Cleary</authors>
+  <owners>Stephen Cleary</owners>
+  <summary>IComparer&lt;T&gt; implementations and extension methods.</summary>
+  <description>IComparer&lt;T&gt; implementations and extension methods.</description>
+  <language>en-US</language>
+  <projectUrl>http://comparers.codeplex.com/</projectUrl>
+  <tags>nito icomparer comparer iequalitycomparer net40</tags>
+  <references>
+   <reference file="Comparers.dll" />
+  </references>
+  <releaseNotes>
+  </releaseNotes>
+ </metadata>
+ <files>
+  <file src="Comparers\bin\Release\Comparers.dll" target="lib\net40-client" />
+  <file src="Comparers\bin\Release\Comparers.xml" target="lib\net40-client" />
+  <file src="Comparers\bin\Release\Comparers.pdb" target="lib\net40-client" />
+  <file src="Comparers\bin\Release\CodeContracts\Comparers.Contracts.dll" target="lib\net40-client\CodeContracts" />
+  <file src="Comparers\**\*.cs" target="src\Comparers" />
+ </files>
+</package>
