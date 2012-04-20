@@ -67,7 +67,5 @@ namespace Comparers
                 return Null<T>().ThenBy(selector, keyComparer.Reverse());
             }
         }
-
-        // TODO: string comparers
     }
 }
