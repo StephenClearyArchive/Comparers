@@ -159,6 +159,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnonymousComparer.cs" />
+    <Compile Include="ComparableBase.cs" />
+    <Compile Include="ComparableImplementations.cs" />
     <Compile Include="ComparerExtensions.cs" />
     <Compile Include="Compare.cs" />
     <Compile Include="CompoundComparer.cs" />

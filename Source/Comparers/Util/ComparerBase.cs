@@ -35,6 +35,8 @@ namespace Comparers.Util
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
         bool System.Collections.IEqualityComparer.Equals(object x, object y)
         {
+            if (x == null || y == null)
+                return x == y;
             Contract.Assume(x is T);
             Contract.Assume(y is T);
             return (this as IComparer<T>).Compare((T)x, (T)y) == 0;
@@ -59,6 +61,17 @@ namespace Comparers.Util
         /// <returns>A value less than 0 if <paramref name="x"/> is less than <paramref name="y"/>, 0 if <paramref name="x"/> is equal to <paramref name="y"/>, or greater than 0 if <paramref name="x"/> is greater than <paramref name="y"/>.</returns>
         int System.Collections.IComparer.Compare(object x, object y)
         {
+            if (x == null)
+            {
+                if (y == null)
+                    return 0;
+                return -1;
+            }
+            else if (y == null)
+            {
+                return 1;
+            }
+
             Contract.Assume(x is T);
             Contract.Assume(y is T);
             return (this as IComparer<T>).Compare((T)x, (T)y);
