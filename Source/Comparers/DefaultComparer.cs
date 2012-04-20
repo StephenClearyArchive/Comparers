@@ -10,7 +10,7 @@ namespace Comparers
     /// The default comparer.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class DefaultComparer<T> : Util.ComparerBase<T>
+    public sealed class DefaultComparer<T> : Util.ComparerBase<T>, IEqualityComparer<T>, System.Collections.IEqualityComparer
     {
         private DefaultComparer()
         {
@@ -55,6 +55,53 @@ namespace Comparers
                 Contract.Ensures(Contract.Result<DefaultComparer<T>>() != null);
                 return instance;
             }
+        }
+
+        /// <summary>
+        /// Compares two objects and returns a value indicating whether they are equal.
+        /// </summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
+        /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
+        bool IEqualityComparer<T>.Equals(T x, T y)
+        {
+            return EqualityComparer<T>.Default.Equals(x, y);
+        }
+
+        /// <summary>
+        /// Returns a hash code for the specified object.
+        /// </summary>
+        /// <param name="obj">The object for which to return a hash code.</param>
+        /// <returns>A hash code for the specified object.</returns>
+        int IEqualityComparer<T>.GetHashCode(T obj)
+        {
+            return EqualityComparer<T>.Default.GetHashCode(obj);
+        }
+
+        /// <summary>
+        /// Compares two objects and returns a value indicating whether they are equal.
+        /// </summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
+        /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
+        bool System.Collections.IEqualityComparer.Equals(object x, object y)
+        {
+            if (x == null || y == null)
+                return x == y;
+            Contract.Assume(x is T);
+            Contract.Assume(y is T);
+            return (this as IEqualityComparer<T>).Equals((T)x, (T)y);
+        }
+
+        /// <summary>
+        /// Returns a hash code for the specified object.
+        /// </summary>
+        /// <param name="obj">The object for which to return a hash code.</param>
+        /// <returns>A hash code for the specified object.</returns>
+        int System.Collections.IEqualityComparer.GetHashCode(object obj)
+        {
+            Contract.Assume(obj is T);
+            return (this as IEqualityComparer<T>).GetHashCode((T)obj);
         }
     }
 }
