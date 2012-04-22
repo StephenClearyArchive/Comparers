@@ -69,5 +69,13 @@ namespace Comparers
                 return ret;
             return this.ThenBy.Compare(x, y);
         }
+
+        /// <summary>
+        /// Returns a short, human-readable description of the comparer. This is intended for debugging and not for other purposes.
+        /// </summary>
+        public override string ToString()
+        {
+            return "Compound(" + this.Source + ", " + this.ThenBy + ")";
+        }
     }
 }

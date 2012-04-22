@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using System.Reflection;
 
 namespace Comparers
 {
@@ -102,6 +103,33 @@ namespace Comparers
         {
             Contract.Assume(obj is T);
             return (this as IEqualityComparer<T>).GetHashCode((T)obj);
+        }
+
+        /// <summary>
+        /// Returns a short, human-readable description of the comparer. This is intended for debugging and not for other purposes.
+        /// </summary>
+        public override string ToString()
+        {
+            var typeofT = typeof(T);
+            string comparableBaseString = null;
+            try
+            {
+                Type comparableBase = typeof(ComparableBase<>).MakeGenericType(typeofT);
+                var property = comparableBase.GetProperty("DefaultComparer", BindingFlags.Static | BindingFlags.Public);
+                var value = property.GetValue(null, null);
+                comparableBaseString = value.ToString();
+            }
+            catch
+            {
+            }
+
+            if (comparableBaseString != null)
+                return "Default(" + comparableBaseString + ")";
+            if (typeofT.GetInterface("IComparable`1") != null)
+                return "Default(" + typeofT.Name + ": IComparable<T>)";
+            if (typeofT.GetInterface("IComparable") != null)
+                return "Default(" + typeofT.Name + ": IComparable)";
+            return "Default(" + typeofT.Name + ": undefined)";
         }
     }
 }

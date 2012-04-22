@@ -56,5 +56,13 @@ namespace Comparers
                 return instance;
             }
         }
+
+        /// <summary>
+        /// Returns a short, human-readable description of the comparer. This is intended for debugging and not for other purposes.
+        /// </summary>
+        public override string ToString()
+        {
+            return "Null";
+        }
     }
 }
