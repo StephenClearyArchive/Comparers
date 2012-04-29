@@ -2,7 +2,7 @@
 <package>
  <metadata>
   <id>Comparers</id>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <title>Comparers</title>
   <authors>Stephen Cleary</authors>
   <owners>Stephen Cleary</owners>
@@ -15,6 +15,7 @@
    <reference file="Comparers.dll" />
   </references>
   <releaseNotes>
+   [1.1.0] Added ToString implementations to all comparers to assist debugging.
   </releaseNotes>
  </metadata>
  <files>
