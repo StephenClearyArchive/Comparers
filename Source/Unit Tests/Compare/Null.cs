@@ -13,7 +13,7 @@ namespace Compare_
         [TestMethod]
         public void ComparesAllElementsAsEqual()
         {
-            var comparer = Compare.Null<int>();
+            var comparer = Compare<int>.Null();
             Assert.AreEqual(0, comparer.Compare(13, 17));
             Assert.IsTrue(comparer.Equals(19, 21));
         }

@@ -170,6 +170,7 @@
     <Compile Include="ReverseComparer.cs" />
     <Compile Include="SelectComparer.cs" />
     <Compile Include="Util\ComparerBase.cs" />
+    <Compile Include="Util\ComparerExtensions.cs" />
     <Compile Include="Util\ComparerHelpers.cs" />
     <Compile Include="Util\SourceComparerBase.cs" />
   </ItemGroup>

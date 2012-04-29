@@ -14,7 +14,7 @@ namespace t.ComparableBase
         {
             static Person()
             {
-                DefaultComparer = Compare.Key<Person>.OrderBy(p => p.LastName).ThenBy(p => p.FirstName);
+                DefaultComparer = Compare<Person>.OrderBy(p => p.LastName).ThenBy(p => p.FirstName);
             }
 
             public string FirstName { get; set; }

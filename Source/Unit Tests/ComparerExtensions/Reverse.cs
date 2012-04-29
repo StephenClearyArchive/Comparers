@@ -14,7 +14,7 @@ namespace ComparerExtensions_
         public void SubstitutesCompareDefaultForComparerDefault()
         {
             var comparer = Comparer<int>.Default.Reverse();
-            Assert.AreSame(Compare.Default<int>(), comparer.Source);
+            Assert.AreSame(Compare<int>.Default(), comparer.Source);
 
             var list = Enumerable.Range(0, 5).ToList();
             list.Sort(comparer);
@@ -26,7 +26,7 @@ namespace ComparerExtensions_
         {
             IComparer<int> source = null;
             var comparer = source.Reverse();
-            Assert.AreSame(Compare.Default<int>(), comparer.Source);
+            Assert.AreSame(Compare<int>.Default(), comparer.Source);
 
             var list = Enumerable.Range(0, 5).ToList();
             list.Sort(comparer);
@@ -37,7 +37,7 @@ namespace ComparerExtensions_
         public void ReversesComparer()
         {
             var list = Enumerable.Range(0, 5).ToList();
-            list.Sort(Compare.Default<int>().Reverse());
+            list.Sort(Compare<int>.Default().Reverse());
             CollectionAssert.AreEquivalent(new[] { 4, 3, 2, 1, 0 }, list);
         }
     }

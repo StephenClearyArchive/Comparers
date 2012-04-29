@@ -16,7 +16,7 @@ namespace Compare_
             var list1 = new[] { 3, 5, 4, 2, 6 }.ToList();
             var list2 = new[] { 3, 5, 4, 2, 6 }.ToList();
             list1.Sort();
-            list2.Sort(Compare.Default<int>());
+            list2.Sort(Compare<int>.Default());
             CollectionAssert.AreEquivalent(list1, list2);
         }
     }

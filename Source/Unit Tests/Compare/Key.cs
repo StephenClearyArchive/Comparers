@@ -19,7 +19,7 @@ namespace Compare_
         public void OrderBySortsByKey()
         {
             var list = new List<Person> { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.FirstName));
+            list.Sort(Compare<Person>.OrderBy(p => p.FirstName));
             CollectionAssert.AreEquivalent(new[] { AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams }, list);
         }
 
@@ -27,7 +27,7 @@ namespace Compare_
         public void OrderByUsesKeyComparer()
         {
             var list = new List<Person> { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
+            list.Sort(Compare<Person>.OrderBy(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
             CollectionAssert.AreEquivalent(new[] { WilliamAbrams, JackAbrams, CaseyJohnson, AbeAbrams }, list);
         }
 
@@ -35,7 +35,7 @@ namespace Compare_
         public void OrderByDescendingSortsByKey()
         {
             var list = new List<Person> { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson };
-            list.Sort(Compare.Key<Person>.OrderByDescending(p => p.FirstName));
+            list.Sort(Compare<Person>.OrderByDescending(p => p.FirstName));
             CollectionAssert.AreEquivalent(new[] { WilliamAbrams, JackAbrams, CaseyJohnson, AbeAbrams }, list);
         }
 
@@ -43,7 +43,7 @@ namespace Compare_
         public void OrderByDescendingUsesKeyComparer()
         {
             var list = new List<Person> { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
+            list.Sort(Compare<Person>.OrderBy(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
             CollectionAssert.AreEquivalent(new[] { AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams }, list);
         }
 
@@ -51,7 +51,7 @@ namespace Compare_
         public void ThenBySortsByKey()
         {
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.LastName).ThenBy(p => p.FirstName));
+            list.Sort(Compare<Person>.OrderBy(p => p.LastName).ThenBy(p => p.FirstName));
             CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
 
@@ -59,7 +59,7 @@ namespace Compare_
         public void ThenByUsesKeyComparer()
         {
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.LastName).ThenBy(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
+            list.Sort(Compare<Person>.OrderBy(p => p.LastName).ThenBy(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
             CollectionAssert.AreEquivalent(new[] { WilliamAbrams, JackAbrams, AbeAbrams, CaseyJohnson }, list);
         }
 
@@ -67,7 +67,7 @@ namespace Compare_
         public void ThenByDescendingSortsByKey()
         {
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.LastName).ThenByDescending(p => p.FirstName));
+            list.Sort(Compare<Person>.OrderBy(p => p.LastName).ThenByDescending(p => p.FirstName));
             CollectionAssert.AreEquivalent(new[] { WilliamAbrams, JackAbrams, AbeAbrams, CaseyJohnson }, list);
         }
 
@@ -75,7 +75,7 @@ namespace Compare_
         public void ThenByDescendingUsesKeyComparer()
         {
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
-            list.Sort(Compare.Key<Person>.OrderBy(p => p.LastName).ThenByDescending(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
+            list.Sort(Compare<Person>.OrderBy(p => p.LastName).ThenByDescending(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
             CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using Comparers.Util;
 
 namespace Comparers
 {
@@ -31,11 +32,12 @@ namespace Comparers
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="selector">The key selector. May not be <c>null</c>.</param>
         /// <returns>A comparer that works by comparing the results of the specified key selector.</returns>
+        [Obsolete("You probably want to use ThenBy. If you do need Select, use SelectFrom (in the Comparers.Util namespace).")]
         public static SelectComparer<TKey, TSourceElement> Select<TKey, TSourceElement>(this IComparer<TKey> source, Func<TSourceElement, TKey> selector)
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<SelectComparer<TKey, TSourceElement>>() != null);
-            return new SelectComparer<TKey, TSourceElement>(source, selector);
+            return source.SelectFrom(selector);
         }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace Comparers
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
-            return source.ThenBy(keyComparer.Select(selector));
+            return source.ThenBy(keyComparer.SelectFrom(selector));
         }
 
         /// <summary>
@@ -80,7 +82,7 @@ namespace Comparers
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
-            return source.ThenBy(keyComparer.Select(selector).Reverse());
+            return source.ThenBy(keyComparer.SelectFrom(selector).Reverse());
         }
     }
 }
