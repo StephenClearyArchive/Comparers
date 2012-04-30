@@ -46,6 +46,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparableBase\Operators.cs" />
     <Compile Include="ComparableBase\DefaultComparer.cs" />
     <Compile Include="ComparerExtensions\Reverse.cs" />
     <Compile Include="ComparerExtensions\SelectFrom.cs" />

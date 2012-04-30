@@ -5,10 +5,10 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Comparers;
 
-namespace t.ComparableBase
+namespace ComparableBase_
 {
     [TestClass]
-    public class DefaultComparer
+    public class _DefaultComparer
     {
         private sealed class Person : ComparableBase<Person>
         {
