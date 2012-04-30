@@ -65,5 +65,12 @@ namespace ComparerExtensions_
             Assert.IsTrue(Compare<int>.Default().Reverse().Sequence().Compare(new[] { 3, 4 }, new[] { 3, 5 }) > 0);
             Assert.IsTrue(Compare<int>.Default().Reverse().Sequence().Compare(new[] { 3, 4, 5 }, new[] { 3, 3, 5 }) < 0);
         }
+
+        [TestMethod]
+        public void NullIsSmallerThanEmpty()
+        {
+            Assert.IsTrue(Compare<int>.Default().Sequence().Compare(null, Enumerable.Empty<int>()) < 0);
+            Assert.IsTrue(Compare<int>.Default().Sequence().Compare(Enumerable.Empty<int>(), null) > 0);
+        }
     }
 }

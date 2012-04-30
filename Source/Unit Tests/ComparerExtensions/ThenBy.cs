@@ -84,6 +84,6 @@ namespace ComparerExtensions_
             Assert.IsTrue(comparer.Compare(CaseyJohnson, AbeAbrams) > 0);
         }
 
-        // The delegate overloads are tested by tCompare.tKey.
+        // The delegate overloads are tested by Compare_._Key.
     }
 }

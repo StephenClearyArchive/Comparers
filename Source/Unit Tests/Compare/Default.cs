@@ -34,5 +34,39 @@ namespace Compare_
             list2.Sort(comparer2);
             CollectionAssert.AreEquivalent(list1, list2);
         }
+
+        [TestMethod]
+        public void NullIsLessThanValue()
+        {
+            var list = new int?[] { 3, null, 4, 2, 6 }.ToList();
+            list.Sort(Compare<int?>.Default());
+            CollectionAssert.AreEquivalent(list, new int?[] { null, 2, 3, 4, 6 });
+        }
+
+        [TestMethod]
+        public void NullSequenceIsLessThanValuesAndEmptySequence()
+        {
+            var none = new int[0];
+            var five = new[] { 5 };
+            var list = new[] { five, none, null }.ToList();
+            list.Sort(Compare<int[]>.Default());
+            CollectionAssert.AreEquivalent(list, new[] { null, none, five });
+        }
+
+        [TestMethod]
+        public void NullIsEqualToNull()
+        {
+            var comparer = Compare<int?>.Default();
+            Assert.IsTrue(comparer.Compare(null, null) == 0);
+            Assert.IsTrue(comparer.Equals(null, null));
+        }
+
+        [TestMethod]
+        public void NullSequenceIsEqualToNullSequence()
+        {
+            var comparer = Compare<int[]>.Default();
+            Assert.IsTrue(comparer.Compare(null, null) == 0);
+            Assert.IsTrue(comparer.Equals(null, null));
+        }
     }
 }

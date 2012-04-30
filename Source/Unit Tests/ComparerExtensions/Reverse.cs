@@ -41,5 +41,13 @@ namespace ComparerExtensions_
             list.Sort(Compare<int>.Default().Reverse());
             CollectionAssert.AreEquivalent(new[] { 4, 3, 2, 1, 0 }, list);
         }
+
+        [TestMethod]
+        public void ReversesComparerWithNull()
+        {
+            var list = Enumerable.Repeat<int?>(null, 1).Concat(Enumerable.Range(0, 5).Cast<int?>()).ToList();
+            list.Sort(Compare<int?>.Default().Reverse());
+            CollectionAssert.AreEquivalent(new int?[] { 4, 3, 2, 1, 0, null }, list);
+        }
     }
 }

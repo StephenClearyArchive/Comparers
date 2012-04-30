@@ -27,5 +27,21 @@ namespace Compare_
             Assert.IsTrue(comparer.Equals(null, 21));
             Assert.IsTrue(comparer.Equals(19, null));
         }
+
+        [TestMethod]
+        public void ComparesEqualElementsAsEqual()
+        {
+            var comparer = Compare<int>.Null();
+            Assert.AreEqual(0, comparer.Compare(13, 13));
+            Assert.IsTrue(comparer.Equals(13, 13));
+        }
+
+        [TestMethod]
+        public void ComparesNullElementsAsEqual()
+        {
+            var comparer = Compare<int?>.Null();
+            Assert.AreEqual(0, comparer.Compare(null, null));
+            Assert.IsTrue(comparer.Equals(null, null));
+        }
     }
 }

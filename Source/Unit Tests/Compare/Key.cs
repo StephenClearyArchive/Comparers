@@ -102,5 +102,17 @@ namespace Compare_
             list.Sort(Compare<Person>.OrderBy(p => p == null, allowNulls: true).ThenBy(p => p.FirstName));
             CollectionAssert.AreEquivalent(new[] { AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams, null }, list);
         }
+
+        [TestMethod]
+        public void OrderByWithNullThenByComparesNullsAsEqual()
+        {
+            var comparer = Compare<Person>.OrderBy(p => p == null, allowNulls: true).ThenBy(p => p.FirstName).ThenBy(p =>
+            {
+                Assert.Fail();
+                return 0;
+            });
+            Assert.IsTrue(comparer.Compare(null, null) == 0);
+            Assert.IsTrue(comparer.Equals(null, null));
+        }
     }
 }
