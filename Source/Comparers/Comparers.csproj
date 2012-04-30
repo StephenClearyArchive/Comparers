@@ -166,6 +166,8 @@
     <Compile Include="Compare.cs" />
     <Compile Include="Util\CompoundComparer.cs" />
     <Compile Include="Util\ComparerBaseAllowNulls.cs" />
+    <Compile Include="Util\SelectComparerAllowNulls.cs" />
+    <Compile Include="Util\SourceComparerBaseAllowNulls.cs" />
     <Compile Include="Util\DefaultComparer.cs" />
     <Compile Include="IFullComparer.cs" />
     <Compile Include="Util\NullComparer.cs" />
@@ -176,7 +178,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Util\ComparerBase.cs" />
-    <Compile Include="Util\ComparerExtensions.cs" />
+    <Compile Include="Util\UtilityComparerExtensions.cs" />
     <Compile Include="Util\ComparerHelpers.cs" />
     <Compile Include="Util\SourceComparerBase.cs" />
   </ItemGroup>

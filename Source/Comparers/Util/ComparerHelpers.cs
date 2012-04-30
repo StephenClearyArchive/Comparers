@@ -16,7 +16,7 @@ namespace Comparers.Util
         /// </summary>
         /// <typeparam name="T">The type of objects being compared.</typeparam>
         /// <param name="comparer">The comparer to use to calculate a hash code. May not be <c>null</c>.</param>
-        /// <param name="obj">The object for which to return a hash code. May not be <c>null</c>.</param>
+        /// <param name="obj">The object for which to return a hash code. May be <c>null</c>.</param>
         /// <returns>A hash code for the specified object.</returns>
         public static int GetHashCodeFromComparer<T>(IComparer<T> comparer, T obj)
         {
@@ -26,11 +26,7 @@ namespace Comparers.Util
                 return equalityComparer.GetHashCode(obj);
             var objectEqualityComparer = comparer as System.Collections.IEqualityComparer;
             if (objectEqualityComparer != null)
-            {
-                object o = obj;
-                Contract.Assume(o != null);
-                return objectEqualityComparer.GetHashCode(o);
-            }
+                return objectEqualityComparer.GetHashCode(obj);
 
             throw new NotImplementedException();
         }

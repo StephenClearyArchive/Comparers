@@ -11,7 +11,7 @@ namespace Comparers.Util
     /// </summary>
     /// <typeparam name="T">The type of objects compared by this comparer.</typeparam>
     /// <typeparam name="TSource">The type of objects compared by the source comparer.</typeparam>
-    public abstract class SourceComparerBase<T, TSource> : ComparerBase<T>
+    public abstract class SourceComparerBaseAllowNulls<T, TSource> : ComparerBaseAllowNulls<T>
     {
         /// <summary>
         /// The source comparer.
@@ -22,7 +22,7 @@ namespace Comparers.Util
         /// Initializes a new instance of the <see cref="SourceComparerBase&lt;T, TSource&gt;"/> class.
         /// </summary>
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
-        protected SourceComparerBase(IComparer<TSource> source)
+        protected SourceComparerBaseAllowNulls(IComparer<TSource> source)
         {
             this.source_ = ComparerHelpers.NormalizeDefault(source);
         }

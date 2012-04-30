@@ -78,5 +78,29 @@ namespace Compare_
             list.Sort(Compare<Person>.OrderBy(p => p.LastName).ThenByDescending(p => p.FirstName, StringComparer.InvariantCulture.Reverse()));
             CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
+
+        [TestMethod]
+        public void OrderBySortsNullsAsLowest()
+        {
+            var list = new List<Person> { AbeAbrams, JackAbrams, null, WilliamAbrams, CaseyJohnson };
+            list.Sort(Compare<Person>.OrderBy(p => p.FirstName));
+            CollectionAssert.AreEquivalent(new[] { null, AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams }, list);
+        }
+
+        [TestMethod]
+        public void OrderByWithNullPassesNullThrough()
+        {
+            var list = new List<Person> { null, WilliamAbrams };
+            list.Sort(Compare<Person>.OrderBy(p => p == null, allowNulls:true));
+            CollectionAssert.AreEquivalent(new[] { WilliamAbrams, null }, list);
+        }
+
+        [TestMethod]
+        public void OrderByWithNullThenByHandlesNull()
+        {
+            var list = new List<Person> { AbeAbrams, JackAbrams, null, WilliamAbrams, CaseyJohnson };
+            list.Sort(Compare<Person>.OrderBy(p => p == null, allowNulls: true).ThenBy(p => p.FirstName));
+            CollectionAssert.AreEquivalent(new[] { AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams, null }, list);
+        }
     }
 }

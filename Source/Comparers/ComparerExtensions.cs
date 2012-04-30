@@ -45,12 +45,13 @@ namespace Comparers
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="selector">The key selector. May not be <c>null</c>.</param>
         /// <param name="keyComparer">The key comparer. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
+        /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <paramref name="selector"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <paramref name="selector"/>.</param>
         /// <returns>A comparer that uses a key comparer if the source comparer determines the objects are equal.</returns>
-        public static IFullComparer<T> ThenBy<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
+        public static IFullComparer<T> ThenBy<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null, bool allowNulls = false)
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            return source.ThenBy(keyComparer.SelectFrom(selector));
+            return source.ThenBy(keyComparer.SelectFrom(selector, allowNulls));
         }
 
         /// <summary>
@@ -61,12 +62,13 @@ namespace Comparers
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="selector">The key selector. May not be <c>null</c>.</param>
         /// <param name="keyComparer">The key comparer. The returned comparer applies this key comparer in reverse. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
+        /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <paramref name="selector"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <paramref name="selector"/>.</param>
         /// <returns>A comparer that uses a key comparer if the source comparer determines the objects are equal.</returns>
-        public static IFullComparer<T> ThenByDescending<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null)
+        public static IFullComparer<T> ThenByDescending<T, TKey>(this IComparer<T> source, Func<T, TKey> selector, IComparer<TKey> keyComparer = null, bool allowNulls = false)
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            return source.ThenBy(keyComparer.SelectFrom(selector).Reverse());
+            return ThenBy<T, TKey>(source, selector, keyComparer.Reverse(), allowNulls);
         }
 
         /// <summary>
