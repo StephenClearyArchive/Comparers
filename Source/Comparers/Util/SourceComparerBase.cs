@@ -7,61 +7,22 @@ using System.Diagnostics.Contracts;
 namespace Comparers.Util
 {
     /// <summary>
-    /// Common implementations for comparers that are based on a source comparer.
-    /// </summary>
-    /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public abstract class SourceComparerBase<T> : ComparerBase<T>
-    {
-        /// <summary>
-        /// The source comparer.
-        /// </summary>
-        private readonly IComparer<T> source_;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SourceComparerBase&lt;T&gt;"/> class.
-        /// </summary>
-        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
-        protected SourceComparerBase(IComparer<T> source)
-        {
-            this.source_ = ComparerHelpers.NormalizeDefault(source);
-        }
-
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.source_ != null);
-        }
-
-        /// <summary>
-        /// Gets the source comparer.
-        /// </summary>
-        public IComparer<T> Source
-        {
-            get
-            {
-                Contract.Ensures(Contract.Result<IComparer<T>>() != null);
-                return this.source_;
-            }
-        }
-    }
-
-    /// <summary>
     /// Common implementations for comparers that are based on a source comparer for a different type of object.
     /// </summary>
-    /// <typeparam name="TKey">The type of objects compared by the source comparer.</typeparam>
-    /// <typeparam name="TSourceElement">The type of objects compared by this comparer.</typeparam>
-    public abstract class SourceComparerBase<TKey, TSourceElement> : ComparerBase<TSourceElement>
+    /// <typeparam name="T">The type of objects compared by this comparer.</typeparam>
+    /// <typeparam name="TSource">The type of objects compared by the source comparer.</typeparam>
+    public abstract class SourceComparerBase<T, TSource> : ComparerBase<T>
     {
         /// <summary>
         /// The source comparer.
         /// </summary>
-        private readonly IComparer<TKey> source_;
+        private readonly IComparer<TSource> source_;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SourceComparerBase&lt;T&gt;"/> class.
+        /// Initializes a new instance of the <see cref="SourceComparerBase&lt;T, TSource&gt;"/> class.
         /// </summary>
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
-        protected SourceComparerBase(IComparer<TKey> source)
+        protected SourceComparerBase(IComparer<TSource> source)
         {
             this.source_ = ComparerHelpers.NormalizeDefault(source);
         }
@@ -75,11 +36,11 @@ namespace Comparers.Util
         /// <summary>
         /// Gets the source comparer.
         /// </summary>
-        public IComparer<TKey> Source
+        public IComparer<TSource> Source
         {
             get
             {
-                Contract.Ensures(Contract.Result<IComparer<TKey>>() != null);
+                Contract.Ensures(Contract.Result<IComparer<TSource>>() != null);
                 return this.source_;
             }
         }

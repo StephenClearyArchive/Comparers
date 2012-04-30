@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Comparers.Util;
 
-namespace Comparers
+namespace Comparers.Util
 {
     /// <summary>
     /// A comparer that performs a lexicographical ordering on a sequence.
     /// </summary>
     /// <typeparam name="T">The type of sequence elements being compared.</typeparam>
-    public sealed class SequenceComparer<T> : SourceComparerBase<T, IEnumerable<T>>
+    public sealed class SequenceComparer<T> : SourceComparerBase<IEnumerable<T>, T>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SequenceComparer&lt;T&gt;"/> class.
@@ -30,7 +29,7 @@ namespace Comparers
         {
             int ret = 0;
             foreach (var item in obj)
-                ret ^= Comparers.Util.ComparerHelpers.GetHashCodeFromComparer(this.Source, item);
+                ret ^= ComparerHelpers.GetHashCodeFromComparer(this.Source, item);
             return ret;
         }
 

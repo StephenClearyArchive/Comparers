@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using Comparers.Util;
 
 namespace Comparers
 {
@@ -10,7 +11,7 @@ namespace Comparers
     /// An object that implements a comparer using delegates.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class AnonymousComparer<T> : Util.ComparerBase<T>
+    public sealed class AnonymousComparer<T> : ComparerBase<T>
     {
         /// <summary>
         /// Gets or sets a delegate which compares two objects and returns a value less than 0 if its first argument is less than its second argument, 0 if its two arguments are equal, or greater than 0 if its first argument is greater than its second argument.

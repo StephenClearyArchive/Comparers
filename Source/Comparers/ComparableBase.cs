@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using Comparers.Util;
 
 namespace Comparers
 {
@@ -15,7 +16,7 @@ namespace Comparers
         /// <summary>
         /// Gets the default comparer for this type.
         /// </summary>
-        public static Util.ComparerBase<T> DefaultComparer { get; protected set; }
+        public static IFullComparer<T> DefaultComparer { get; protected set; }
 
         /// <summary>
         /// Gets the hash code for this instance.

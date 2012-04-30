@@ -4,47 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
 
-namespace Comparers
+namespace Comparers.Util
 {
     /// <summary>
-    /// A comparer that works by comparing the results of the specified key selector.
+    /// A comparer that uses another comparer if the source comparer determines the objects are equal.
     /// </summary>
-    /// <typeparam name="TKey">The type of key objects being compared.</typeparam>
-    /// <typeparam name="TSourceElement">The type of objects being compared.</typeparam>
-    public sealed class SelectComparer<TKey, TSourceElement> : Util.SourceComparerBase<TKey, TSourceElement>
+    /// <typeparam name="T">The type of objects being compared.</typeparam>
+    public sealed class CompoundComparer<T> : SourceComparerBase<T, T>
     {
         /// <summary>
-        /// The key selector.
+        /// The second comparer.
         /// </summary>
-        private readonly Func<TSourceElement, TKey> selector;
+        private readonly IComparer<T> secondSource_;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SelectComparer&lt;TKey, TSourceElement&gt;"/> class.
+        /// Initializes a new instance of the <see cref="CompoundComparer&lt;T&gt;"/> class.
         /// </summary>
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
-        /// <param name="selector">The key selector. May not be <c>null</c>.</param>
-        public SelectComparer(IComparer<TKey> source, Func<TSourceElement, TKey> selector)
+        /// <param name="secondSource">The second comparer. If this is <c>null</c>, the default comparer is used.</param>
+        public CompoundComparer(IComparer<T> source, IComparer<T> secondSource)
             : base(source)
         {
-            Contract.Requires(selector != null);
-            this.selector = selector;
+            this.secondSource_ = ComparerHelpers.NormalizeDefault(secondSource);
         }
 
         [ContractInvariantMethod]
         private void ObjectInvariant()
         {
-            Contract.Invariant(this.selector != null);
+            Contract.Invariant(this.secondSource_ != null);
         }
 
         /// <summary>
-        /// Gets the key selector.
+        /// Gets the second comparer.
         /// </summary>
-        public Func<TSourceElement, TKey> Select
+        public IComparer<T> SecondSource
         {
             get
             {
-                Contract.Ensures(Contract.Result<Func<TSourceElement, TKey>>() != null);
-                return this.selector;
+                Contract.Ensures(Contract.Result<IComparer<T>>() != null);
+                return this.secondSource_;
             }
         }
 
@@ -53,9 +51,9 @@ namespace Comparers
         /// </summary>
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
-        protected override int DoGetHashCode(TSourceElement obj)
+        protected override int DoGetHashCode(T obj)
         {
-            return Util.ComparerHelpers.GetHashCodeFromComparer(this.Source, this.selector(obj));
+            return ComparerHelpers.GetHashCodeFromComparer(this.Source, obj) ^ ComparerHelpers.GetHashCodeFromComparer(this.SecondSource, obj);
         }
 
         /// <summary>
@@ -64,9 +62,12 @@ namespace Comparers
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns>A value less than 0 if <paramref name="x"/> is less than <paramref name="y"/>, 0 if <paramref name="x"/> is equal to <paramref name="y"/>, or greater than 0 if <paramref name="x"/> is greater than <paramref name="y"/>.</returns>
-        protected override int DoCompare(TSourceElement x, TSourceElement y)
+        protected override int DoCompare(T x, T y)
         {
-            return this.Source.Compare(this.selector(x), this.selector(y));
+            var ret = this.Source.Compare(x, y);
+            if (ret != 0)
+                return ret;
+            return this.SecondSource.Compare(x, y);
         }
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace Comparers
         /// </summary>
         public override string ToString()
         {
-            return "Select<" + typeof(TKey).Name + ">(" + this.Source + ")";
+            return "Compound(" + this.Source + ", " + this.SecondSource + ")";
         }
     }
 }

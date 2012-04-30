@@ -160,15 +160,19 @@
   <ItemGroup>
     <Compile Include="AnonymousComparer.cs" />
     <Compile Include="ComparableBase.cs" />
-    <Compile Include="ComparableImplementations.cs" />
+    <Compile Include="Util\ComparableImplementations.cs" />
     <Compile Include="ComparerExtensions.cs" />
     <Compile Include="Compare.cs" />
-    <Compile Include="CompoundComparer.cs" />
-    <Compile Include="DefaultComparer.cs" />
-    <Compile Include="NullComparer.cs" />
+    <Compile Include="Util\CompoundComparer.cs" />
+    <Compile Include="Util\DefaultComparer.cs" />
+    <Compile Include="IFullComparer.cs" />
+    <Compile Include="Util\NullComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReverseComparer.cs" />
-    <Compile Include="SelectComparer.cs" />
+    <Compile Include="Util\ReverseComparer.cs" />
+    <Compile Include="Util\SelectComparer.cs" />
+    <Compile Include="Util\SequenceComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Util\ComparerBase.cs" />
     <Compile Include="Util\ComparerExtensions.cs" />
     <Compile Include="Util\ComparerHelpers.cs" />

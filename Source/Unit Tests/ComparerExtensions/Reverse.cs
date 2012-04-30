@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Comparers;
+using Comparers.Util;
 
 namespace ComparerExtensions_
 {
@@ -14,7 +15,7 @@ namespace ComparerExtensions_
         public void SubstitutesCompareDefaultForComparerDefault()
         {
             var comparer = Comparer<int>.Default.Reverse();
-            Assert.AreSame(Compare<int>.Default(), comparer.Source);
+            Assert.AreSame(Compare<int>.Default(), (comparer as ReverseComparer<int>).Source);
 
             var list = Enumerable.Range(0, 5).ToList();
             list.Sort(comparer);
@@ -26,7 +27,7 @@ namespace ComparerExtensions_
         {
             IComparer<int> source = null;
             var comparer = source.Reverse();
-            Assert.AreSame(Compare<int>.Default(), comparer.Source);
+            Assert.AreSame(Compare<int>.Default(), (comparer as ReverseComparer<int>).Source);
 
             var list = Enumerable.Range(0, 5).ToList();
             list.Sort(comparer);

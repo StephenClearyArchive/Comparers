@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
 
-namespace Comparers
+namespace Comparers.Util
 {
     /// <summary>
     /// Provides implementations for comparison, equality, and hash code methods.

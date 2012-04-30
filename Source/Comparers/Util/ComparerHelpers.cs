@@ -45,7 +45,22 @@ namespace Comparers.Util
         {
             Contract.Ensures(Contract.Result<IComparer<T>>() != null);
             if (comparer == null || comparer == Comparer<T>.Default)
+            {
+                if (!DefaultComparer<T>.IsImplementedByType && DefaultComparer<T>.IsImplemented)
+                {
+                    // If T doesn't implement a default comparer but DefaultComparer does, then T must implement IEnumerable<U>.
+                    // Extract the U and create a SequenceComparer<U>.
+                    var enumerable = typeof(T).GetInterface("IEnumerable`1");
+                    var elementTypes = enumerable.GetGenericArguments();
+                    var ret = typeof(SequenceComparer<>).MakeGenericType(elementTypes)
+                        .GetConstructor(new[] { typeof(IComparer<>).MakeGenericType(elementTypes) })
+                        .Invoke(new object[] { null });
+                    return (IComparer<T>)ret;
+                }
+
                 return DefaultComparer<T>.Instance;
+            }
+
             return comparer;
         }
     }

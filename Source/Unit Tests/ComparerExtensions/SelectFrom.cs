@@ -26,7 +26,7 @@ namespace ComparerExtensions_
         public void SubstitutesCompareDefaultForComparerDefault()
         {
             var comparer = Comparer<int>.Default.SelectFrom((Person p) => p.Priority);
-            Assert.AreSame(Compare<int>.Default(), comparer.Source);
+            Assert.AreSame(Compare<int>.Default(), (comparer as SelectComparer<Person, int>).Source);
 
             var list = GetPeople();
             list.Sort(comparer);
@@ -38,7 +38,7 @@ namespace ComparerExtensions_
         {
             IComparer<int> source = null;
             var comparer = source.SelectFrom((Person p) => p.Priority);
-            Assert.AreSame(Compare<int>.Default(), comparer.Source);
+            Assert.AreSame(Compare<int>.Default(), (comparer as SelectComparer<Person, int>).Source);
 
             var list = GetPeople();
             list.Sort(comparer);

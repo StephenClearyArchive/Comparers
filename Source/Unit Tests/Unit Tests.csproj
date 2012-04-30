@@ -49,6 +49,7 @@
     <Compile Include="ComparableBase\DefaultComparer.cs" />
     <Compile Include="ComparerExtensions\Reverse.cs" />
     <Compile Include="ComparerExtensions\SelectFrom.cs" />
+    <Compile Include="ComparerExtensions\Sequence.cs" />
     <Compile Include="ComparerExtensions\ThenBy.cs" />
     <Compile Include="Compare\Default.cs" />
     <Compile Include="Compare\Key.cs" />

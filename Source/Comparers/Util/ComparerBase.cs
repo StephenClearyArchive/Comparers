@@ -10,7 +10,7 @@ namespace Comparers.Util
     /// Common implementations for comparers.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public abstract class ComparerBase<T> : IComparer<T>, System.Collections.IComparer, IEqualityComparer<T>, System.Collections.IEqualityComparer
+    public abstract class ComparerBase<T> : IFullComparer<T>
     {
         /// <summary>
         /// Returns a hash code for the specified object.

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
 
-namespace Comparers
+namespace Comparers.Util
 {
     /// <summary>
     /// The null comparer.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class NullComparer<T> : Util.ComparerBase<T>
+    public sealed class NullComparer<T> : ComparerBase<T>
     {
         private NullComparer()
         {

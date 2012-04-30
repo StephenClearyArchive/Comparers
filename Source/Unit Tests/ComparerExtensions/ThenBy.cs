@@ -32,7 +32,7 @@ namespace ComparerExtensions_
         {
             IComparer<Person> thenByComparer = Compare<string>.Default().SelectFrom((Person p) => p.FirstName);
             var comparer = Comparer<Person>.Default.ThenBy(thenByComparer);
-            Assert.AreSame(Compare<Person>.Default(), comparer.Source);
+            Assert.AreSame(Compare<Person>.Default(), (comparer as CompoundComparer<Person>).Source);
 
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
             list.Sort(comparer);
@@ -45,7 +45,7 @@ namespace ComparerExtensions_
             IComparer<Person> thenByComparer = Compare<string>.Default().SelectFrom((Person p) => p.FirstName);
             IComparer<Person> source = null;
             var comparer = source.ThenBy(thenByComparer);
-            Assert.AreSame(Compare<Person>.Default(), comparer.Source);
+            Assert.AreSame(Compare<Person>.Default(), (comparer as CompoundComparer<Person>).Source);
 
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
             list.Sort(comparer);

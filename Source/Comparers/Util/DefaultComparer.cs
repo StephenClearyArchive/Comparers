@@ -5,13 +5,13 @@ using System.Text;
 using System.Diagnostics.Contracts;
 using System.Reflection;
 
-namespace Comparers
+namespace Comparers.Util
 {
     /// <summary>
     /// The default comparer.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class DefaultComparer<T> : Util.ComparerBase<T>, IEqualityComparer<T>, System.Collections.IEqualityComparer
+    public sealed class DefaultComparer<T> : ComparerBase<T>, IEqualityComparer<T>, System.Collections.IEqualityComparer
     {
         private DefaultComparer()
         {
@@ -130,6 +130,40 @@ namespace Comparers
             if (typeofT.GetInterface("IComparable") != null)
                 return "Default(" + typeofT.Name + ": IComparable)";
             return "Default(" + typeofT.Name + ": undefined)";
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether a default comparer is implemented by the compared type.
+        /// </summary>
+        public static bool IsImplementedByType
+        {
+            get
+            {
+                var typeofT = typeof(T);
+                if (typeofT.GetInterface("IComparable`1") != null)
+                    return true;
+                if (typeofT.GetInterface("IComparable") != null)
+                    return true;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether a default comparer is implemented for this type.
+        /// </summary>
+        public static bool IsImplemented
+        {
+            get
+            {
+                if (IsImplementedByType)
+                    return true;
+                var enumerable = typeof(T).GetInterface("IEnumerable`1");
+                if (enumerable == null)
+                    return false;
+                return (bool)(typeof(DefaultComparer<>).MakeGenericType(enumerable.GetGenericArguments())
+                    .GetProperty("IsImplemented", BindingFlags.Static | BindingFlags.Public)
+                    .GetValue(null, null));
+            }
         }
     }
 }
