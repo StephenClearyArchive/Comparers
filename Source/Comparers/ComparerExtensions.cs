@@ -84,5 +84,17 @@ namespace Comparers
             Contract.Ensures(Contract.Result<CompoundComparer<T>>() != null);
             return source.ThenBy(keyComparer.SelectFrom(selector).Reverse());
         }
+
+        /// <summary>
+        /// Returns a comparer that will perform a lexicographical ordering on a sequence of items.
+        /// </summary>
+        /// <typeparam name="T">The type of sequence elements being compared.</typeparam>
+        /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
+        /// <returns>A comparer that will perform a lexicographical ordering on a sequence of items.</returns>
+        public static SequenceComparer<T> Sequence<T>(this IComparer<T> source)
+        {
+            Contract.Ensures(Contract.Result<SequenceComparer<T>>() != null);
+            return new SequenceComparer<T>(source);
+        }
     }
 }
