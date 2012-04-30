@@ -165,9 +165,6 @@
     <Compile Include="ComparerExtensions.cs" />
     <Compile Include="Compare.cs" />
     <Compile Include="Util\CompoundComparer.cs" />
-    <Compile Include="Util\ComparerBaseAllowNulls.cs" />
-    <Compile Include="Util\SelectComparerAllowNulls.cs" />
-    <Compile Include="Util\SourceComparerBaseAllowNulls.cs" />
     <Compile Include="Util\DefaultComparer.cs" />
     <Compile Include="IFullComparer.cs" />
     <Compile Include="Util\NullComparer.cs" />

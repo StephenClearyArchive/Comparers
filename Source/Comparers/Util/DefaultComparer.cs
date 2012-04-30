@@ -11,11 +11,11 @@ namespace Comparers.Util
     /// The default comparer.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class DefaultComparer<T> : ComparerBaseAllowNulls<T>, IEqualityComparer<T>, System.Collections.IEqualityComparer
+    public sealed class DefaultComparer<T> : ComparerBase<T>, IEqualityComparer<T>, System.Collections.IEqualityComparer
     {
         private DefaultComparer()
+            : base(true)
         {
-            // This constructor does nothing; it only exists to be inaccessible.
         }
 
         static DefaultComparer()

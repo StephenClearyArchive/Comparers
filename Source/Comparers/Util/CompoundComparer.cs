@@ -10,7 +10,7 @@ namespace Comparers.Util
     /// A comparer that uses another comparer if the source comparer determines the objects are equal.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class CompoundComparer<T> : SourceComparerBaseAllowNulls<T, T>
+    public sealed class CompoundComparer<T> : SourceComparerBase<T, T>
     {
         /// <summary>
         /// The second comparer.
@@ -23,7 +23,7 @@ namespace Comparers.Util
         /// <param name="source">The source comparer. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="secondSource">The second comparer. If this is <c>null</c>, the default comparer is used.</param>
         public CompoundComparer(IComparer<T> source, IComparer<T> secondSource)
-            : base(source)
+            : base(source, true)
         {
             this.secondSource_ = ComparerHelpers.NormalizeDefault(secondSource);
         }

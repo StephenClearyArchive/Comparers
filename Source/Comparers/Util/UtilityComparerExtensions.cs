@@ -24,10 +24,7 @@ namespace Comparers.Util
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            if (allowNulls)
-                return new SelectComparerAllowNulls<T, TSource>(source, selector);
-            else
-                return new SelectComparer<T, TSource>(source, selector);
+            return new SelectComparer<T, TSource>(selector, source, allowNulls);
         }
     }
 }

@@ -24,6 +24,15 @@ namespace Comparers
         public new Func<T, int> GetHashCode { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="AnonymousComparer{T}"/> class.
+        /// </summary>
+        /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <see cref="Compare"/> and <see cref="GetHashCode"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <see cref="Compare"/> nor <see cref="GetHashCode"/>.</param>
+        public AnonymousComparer(bool allowNulls = false)
+            : base(allowNulls)
+        {
+        }
+
+        /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
         /// <param name="obj">The object for which to return a hash code.</param>

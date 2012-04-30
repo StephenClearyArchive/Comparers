@@ -10,11 +10,11 @@ namespace Comparers.Util
     /// The null comparer.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
-    public sealed class NullComparer<T> : ComparerBaseAllowNulls<T>
+    public sealed class NullComparer<T> : ComparerBase<T>
     {
         private NullComparer()
+            : base(true)
         {
-            // This constructor does nothing; it only exists to be inaccessible.
         }
 
         static NullComparer()
