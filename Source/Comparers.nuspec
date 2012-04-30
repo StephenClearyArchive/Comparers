@@ -15,7 +15,7 @@
    <reference file="Comparers.dll" />
   </references>
   <releaseNotes>
-   [2.0.0] More consistent API; added sequence comparers.
+   [2.0.0] More consistent API; added sequence comparers, comparison operators, and the ability to override null object comparison.
    [1.1.0] Added ToString implementations to all comparers to assist debugging.
   </releaseNotes>
  </metadata>
