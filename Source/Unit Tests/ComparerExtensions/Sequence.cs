@@ -23,7 +23,7 @@ namespace ComparerExtensions_
 
             var list = new[] { three, five, four }.ToList();
             list.Sort(comparer);
-            CollectionAssert.AreEquivalent(new[] { three, four, five }, list);
+            CollectionAssert.AreEqual(new[] { three, four, five }, list);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace ComparerExtensions_
 
             var list = new[] { three, five, four }.ToList();
             list.Sort(comparer);
-            CollectionAssert.AreEquivalent(new[] { three, four, five }, list);
+            CollectionAssert.AreEqual(new[] { three, four, five }, list);
         }
 
         [TestMethod]

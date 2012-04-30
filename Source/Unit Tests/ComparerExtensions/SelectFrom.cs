@@ -30,7 +30,7 @@ namespace ComparerExtensions_
 
             var list = GetPeople();
             list.Sort(comparer);
-            CollectionAssert.AreEquivalent(new[] { 2, 3, 4, 5 }, list.Select(x => x.Priority).ToList());
+            CollectionAssert.AreEqual(new[] { 2, 3, 4, 5 }, list.Select(x => x.Priority).ToList());
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace ComparerExtensions_
 
             var list = GetPeople();
             list.Sort(comparer);
-            CollectionAssert.AreEquivalent(new[] { 2, 3, 4, 5 }, list.Select(x => x.Priority).ToList());
+            CollectionAssert.AreEqual(new[] { 2, 3, 4, 5 }, list.Select(x => x.Priority).ToList());
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace ComparerExtensions_
         {
             var list = GetPeople();
             list.Sort(Compare<int>.Default().SelectFrom((Person p) => p.Priority));
-            CollectionAssert.AreEquivalent(new[] { 2, 3, 4, 5 }, list.Select(x => x.Priority).ToList());
+            CollectionAssert.AreEqual(new[] { 2, 3, 4, 5 }, list.Select(x => x.Priority).ToList());
         }
     }
 }

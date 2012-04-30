@@ -36,7 +36,7 @@ namespace ComparerExtensions_
 
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
             list.Sort(comparer);
-            CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
+            CollectionAssert.AreEqual(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace ComparerExtensions_
 
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
             list.Sort(comparer);
-            CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
+            CollectionAssert.AreEqual(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@ namespace ComparerExtensions_
             IComparer<Person> thenByComparer = Compare<string>.Default().SelectFrom((Person p) => p.FirstName);
             var list = new List<Person> { AbeAbrams, WilliamAbrams, CaseyJohnson, JackAbrams };
             list.Sort(Compare<Person>.Default().ThenBy(thenByComparer));
-            CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
+            CollectionAssert.AreEqual(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
 
         [TestMethod]

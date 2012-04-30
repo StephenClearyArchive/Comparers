@@ -32,7 +32,7 @@ namespace ComparableBase_
         {
             var list = new List<Person> { JackAbrams, CaseyJohnson, AbeAbrams, WilliamAbrams };
             list.Sort();
-            CollectionAssert.AreEquivalent(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
+            CollectionAssert.AreEqual(new[] { AbeAbrams, JackAbrams, WilliamAbrams, CaseyJohnson }, list);
         }
 
         [TestMethod]

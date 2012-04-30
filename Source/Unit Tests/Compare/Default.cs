@@ -17,7 +17,7 @@ namespace Compare_
             var list2 = new[] { 3, 5, 4, 2, 6 }.ToList();
             list1.Sort();
             list2.Sort(Compare<int>.Default());
-            CollectionAssert.AreEquivalent(list1, list2);
+            CollectionAssert.AreEqual(list1, list2);
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace Compare_
             var comparer2 = Compare<int[]>.Default();
             list1.Sort(comparer1);
             list2.Sort(comparer2);
-            CollectionAssert.AreEquivalent(list1, list2);
+            CollectionAssert.AreEqual(list1, list2);
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace Compare_
         {
             var list = new int?[] { 3, null, 4, 2, 6 }.ToList();
             list.Sort(Compare<int?>.Default());
-            CollectionAssert.AreEquivalent(list, new int?[] { null, 2, 3, 4, 6 });
+            CollectionAssert.AreEqual(list, new int?[] { null, 2, 3, 4, 6 });
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace Compare_
             var five = new[] { 5 };
             var list = new[] { five, none, null }.ToList();
             list.Sort(Compare<int[]>.Default());
-            CollectionAssert.AreEquivalent(list, new[] { null, none, five });
+            CollectionAssert.AreEqual(list, new[] { null, none, five });
         }
 
         [TestMethod]
