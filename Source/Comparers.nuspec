@@ -10,7 +10,7 @@
   <description>IComparer&lt;T&gt; implementations and extension methods.</description>
   <language>en-US</language>
   <projectUrl>http://comparers.codeplex.com/</projectUrl>
-  <tags>nito icomparer comparer iequalitycomparer net40</tags>
+  <tags>nito icomparer comparer icomparable iequatable iequalitycomparer net40</tags>
   <references>
    <reference file="Comparers.dll" />
   </references>
