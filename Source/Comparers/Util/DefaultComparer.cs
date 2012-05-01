@@ -87,9 +87,7 @@ namespace Comparers.Util
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
         bool System.Collections.IEqualityComparer.Equals(object x, object y)
         {
-            Contract.Assume(x == null || x is T);
-            Contract.Assume(y == null || y is T);
-            return (this as IEqualityComparer<T>).Equals((T)x, (T)y);
+            return object.Equals(x, y);
         }
 
         /// <summary>
@@ -112,9 +110,13 @@ namespace Comparers.Util
             string comparableBaseString = null;
             try
             {
-                Type comparableBase = typeof(ComparableBase<>).MakeGenericType(typeofT);
+                var comparableBaseGeneric = typeof(ComparableBase<>);
+                Contract.Assume(comparableBaseGeneric.IsGenericTypeDefinition && comparableBaseGeneric.GetGenericArguments().Length == 1);
+                var comparableBase = comparableBaseGeneric.MakeGenericType(typeofT);
                 var property = comparableBase.GetProperty("DefaultComparer", BindingFlags.Static | BindingFlags.Public);
+                Contract.Assume(property != null);
                 var value = property.GetValue(null, null);
+                Contract.Assume(value != null);
                 comparableBaseString = value.ToString();
             }
             catch
@@ -158,9 +160,15 @@ namespace Comparers.Util
                 var enumerable = typeof(T).GetInterface("IEnumerable`1");
                 if (enumerable == null)
                     return false;
-                return (bool)(typeof(DefaultComparer<>).MakeGenericType(enumerable.GetGenericArguments())
-                    .GetProperty("IsImplemented", BindingFlags.Static | BindingFlags.Public)
-                    .GetValue(null, null));
+                var defaultComparerGenericType = typeof(DefaultComparer<>);
+                Contract.Assume(defaultComparerGenericType.IsGenericTypeDefinition);
+                Contract.Assume(defaultComparerGenericType.GetGenericArguments().Length == enumerable.GetGenericArguments().Length);
+                var defaultComparerType = defaultComparerGenericType.MakeGenericType(enumerable.GetGenericArguments());
+                var property = defaultComparerType.GetProperty("IsImplemented", BindingFlags.Static | BindingFlags.Public);
+                Contract.Assume(property != null);
+                var value = property.GetValue(null, null);
+                Contract.Assume(value != null);
+                return (bool)value;
             }
         }
     }

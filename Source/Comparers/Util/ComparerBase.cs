@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Comparers.Util
 {
@@ -47,6 +48,8 @@ namespace Comparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-91-0")]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-97-0")]
         bool System.Collections.IEqualityComparer.Equals(object x, object y)
         {
             if (this.allowNulls)
@@ -92,6 +95,8 @@ namespace Comparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns>A value less than 0 if <paramref name="x"/> is less than <paramref name="y"/>, 0 if <paramref name="x"/> is equal to <paramref name="y"/>, or greater than 0 if <paramref name="x"/> is greater than <paramref name="y"/>.</returns>
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-95-0")]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-101-0")]
         int System.Collections.IComparer.Compare(object x, object y)
         {
             if (this.allowNulls)

@@ -40,6 +40,7 @@ namespace Comparers
         /// <returns><c>true</c> if two <typeparamref name="T"/> objects have the same value; otherwise, <c>false</c>.</returns>
         public static bool operator ==(ComparableBaseWithOperators<T> left, ComparableBaseWithOperators<T> right)
         {
+            Contract.Assume(DefaultComparer != null);
             return ComparableImplementations.ImplementOpEquality(DefaultComparer, (T)left, (T)right);
         }
 
@@ -51,6 +52,7 @@ namespace Comparers
         /// <returns><c>true</c> if two <typeparamref name="T"/> objects have different values; otherwise, <c>false</c>.</returns>
         public static bool operator !=(ComparableBaseWithOperators<T> left, ComparableBaseWithOperators<T> right)
         {
+            Contract.Assume(DefaultComparer != null);
             return ComparableImplementations.ImplementOpInequality(DefaultComparer, (T)left, (T)right);
         }
 
@@ -62,6 +64,7 @@ namespace Comparers
         /// <returns><c>true</c> if <paramref name="left"/> has a value that is less than the value of <paramref name="right"/>; otherwise, <c>false</c>.</returns>
         public static bool operator <(ComparableBaseWithOperators<T> left, ComparableBaseWithOperators<T> right)
         {
+            Contract.Assume(DefaultComparer != null);
             return ComparableImplementations.ImplementOpLessThan(DefaultComparer, (T)left, (T)right);
         }
 
@@ -73,6 +76,7 @@ namespace Comparers
         /// <returns><c>true</c> if <paramref name="left"/> has a value that is greater than the value of <paramref name="right"/>; otherwise, <c>false</c>.</returns>
         public static bool operator >(ComparableBaseWithOperators<T> left, ComparableBaseWithOperators<T> right)
         {
+            Contract.Assume(DefaultComparer != null);
             return ComparableImplementations.ImplementOpGreaterThan(DefaultComparer, (T)left, (T)right);
         }
 
@@ -84,6 +88,7 @@ namespace Comparers
         /// <returns><c>true</c> if <paramref name="left"/> has a value that is less than or equal to the value of <paramref name="right"/>; otherwise, <c>false</c>.</returns>
         public static bool operator <=(ComparableBaseWithOperators<T> left, ComparableBaseWithOperators<T> right)
         {
+            Contract.Assume(DefaultComparer != null);
             return ComparableImplementations.ImplementOpLessThanOrEqual(DefaultComparer, (T)left, (T)right);
         }
 
@@ -95,6 +100,7 @@ namespace Comparers
         /// <returns><c>true</c> if <paramref name="left"/> has a value that is greater than or equal to the value of <paramref name="right"/>; otherwise, <c>false</c>.</returns>
         public static bool operator >=(ComparableBaseWithOperators<T> left, ComparableBaseWithOperators<T> right)
         {
+            Contract.Assume(DefaultComparer != null);
             return ComparableImplementations.ImplementOpGreaterThanOrEqual(DefaultComparer, (T)left, (T)right);
         }
     }

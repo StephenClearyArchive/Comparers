@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics.Contracts;
 
 namespace Comparers.Util
 {
@@ -27,6 +28,7 @@ namespace Comparers.Util
         /// <returns>A hash code for the specified object.</returns>
         protected override int DoGetHashCode(IEnumerable<T> obj)
         {
+            Contract.Assume(obj != null);
             int ret = 0;
             foreach (var item in obj)
                 ret ^= ComparerHelpers.GetHashCodeFromComparer(this.Source, item);
@@ -41,6 +43,8 @@ namespace Comparers.Util
         /// <returns>A value less than 0 if <paramref name="x"/> is less than <paramref name="y"/>, 0 if <paramref name="x"/> is equal to <paramref name="y"/>, or greater than 0 if <paramref name="x"/> is greater than <paramref name="y"/>.</returns>
         protected override int DoCompare(IEnumerable<T> x, IEnumerable<T> y)
         {
+            Contract.Assume(x != null);
+            Contract.Assume(y != null);
             using (var xIter = x.GetEnumerator())
             using (var yIter = y.GetEnumerator())
             {
