@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
 using System.Reflection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Comparers.Util
 {
@@ -97,6 +98,7 @@ namespace Comparers.Util
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
         [ContractOption(category: "contract", setting: "inheritance", toggle: false)]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-22-0")]
         int System.Collections.IEqualityComparer.GetHashCode(object obj)
         {
             Contract.Assume(obj == null || obj is T);

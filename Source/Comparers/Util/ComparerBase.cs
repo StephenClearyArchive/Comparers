@@ -48,6 +48,8 @@ namespace Comparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-91-0")]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-97-0")]
         bool System.Collections.IEqualityComparer.Equals(object x, object y)
         {
             if (this.allowNulls)
@@ -72,6 +74,7 @@ namespace Comparers.Util
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
         [ContractOption(category: "contract", setting: "inheritance", toggle: false)]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-51-0")]
         int System.Collections.IEqualityComparer.GetHashCode(object obj)
         {
             if (this.allowNulls)
@@ -94,6 +97,8 @@ namespace Comparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns>A value less than 0 if <paramref name="x"/> is less than <paramref name="y"/>, 0 if <paramref name="x"/> is equal to <paramref name="y"/>, or greater than 0 if <paramref name="x"/> is greater than <paramref name="y"/>.</returns>
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-95-0")]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-101-0")]
         int System.Collections.IComparer.Compare(object x, object y)
         {
             if (this.allowNulls)
