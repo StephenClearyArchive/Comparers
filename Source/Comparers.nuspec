@@ -2,7 +2,7 @@
 <package>
  <metadata>
   <id>Comparers</id>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <title>Comparers</title>
   <authors>Stephen Cleary</authors>
   <owners>Stephen Cleary</owners>
@@ -15,6 +15,7 @@
    <reference file="Comparers.dll" />
   </references>
   <releaseNotes>
+   [2.0.1] Removed contract exceptions when passing null to GetHashCode.
    [2.0.0] More consistent API; added sequence comparers, comparison operators, and the ability to override null object comparison.
    [1.1.0] Added ToString implementations to all comparers to assist debugging.
   </releaseNotes>
