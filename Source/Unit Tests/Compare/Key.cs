@@ -113,7 +113,8 @@ namespace Compare_
             });
             Assert.IsTrue(comparer.Compare(null, null) == 0);
             Assert.IsTrue(comparer.Equals(null, null));
-            Assert.AreEqual(comparer.GetHashCode(null), comparer.GetHashCode(null));
+            Assert.AreEqual(comparer.GetHashCode((object)null), comparer.GetHashCode((object)null));
+            Assert.AreEqual(comparer.GetHashCode((Person)null), comparer.GetHashCode((Person)null));
         }
 
         [TestMethod]

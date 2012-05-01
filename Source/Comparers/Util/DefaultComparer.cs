@@ -74,6 +74,7 @@ namespace Comparers.Util
         /// </summary>
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
+        [ContractOption(category: "contract", setting: "inheritance", toggle: false)]
         int IEqualityComparer<T>.GetHashCode(T obj)
         {
             return EqualityComparer<T>.Default.GetHashCode(obj);
@@ -95,6 +96,7 @@ namespace Comparers.Util
         /// </summary>
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
+        [ContractOption(category: "contract", setting: "inheritance", toggle: false)]
         int System.Collections.IEqualityComparer.GetHashCode(object obj)
         {
             Contract.Assume(obj == null || obj is T);

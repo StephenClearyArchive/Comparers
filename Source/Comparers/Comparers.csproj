@@ -162,6 +162,7 @@
     <Compile Include="AnonymousComparer.cs" />
     <Compile Include="ComparableBase.cs" />
     <Compile Include="ComparableBaseWithOperators.cs" />
+    <Compile Include="ContractExtensions.cs" />
     <Compile Include="Util\ComparableImplementations.cs" />
     <Compile Include="ComparerExtensions.cs" />
     <Compile Include="Compare.cs" />

@@ -27,7 +27,8 @@ namespace Compare_
             Assert.AreEqual(0, comparer.Compare(13, null));
             Assert.IsTrue(comparer.Equals(null, 21));
             Assert.IsTrue(comparer.Equals(19, null));
-            Assert.AreEqual(comparer.GetHashCode(13), comparer.GetHashCode(null));
+            Assert.AreEqual(comparer.GetHashCode(13), comparer.GetHashCode((object)null));
+            Assert.AreEqual(comparer.GetHashCode(13), comparer.GetHashCode((int?)null));
         }
 
         [TestMethod]
@@ -45,7 +46,8 @@ namespace Compare_
             var comparer = Compare<int?>.Null();
             Assert.AreEqual(0, comparer.Compare(null, null));
             Assert.IsTrue(comparer.Equals(null, null));
-            Assert.AreEqual(comparer.GetHashCode(null), comparer.GetHashCode(null));
+            Assert.AreEqual(comparer.GetHashCode((object)null), comparer.GetHashCode((object)null));
+            Assert.AreEqual(comparer.GetHashCode((int?)null), comparer.GetHashCode((int?)null));
         }
     }
 }

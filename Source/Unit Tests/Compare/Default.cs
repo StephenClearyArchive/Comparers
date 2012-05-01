@@ -59,7 +59,8 @@ namespace Compare_
             var comparer = Compare<int?>.Default();
             Assert.IsTrue(comparer.Compare(null, null) == 0);
             Assert.IsTrue(comparer.Equals(null, null));
-            Assert.AreEqual(comparer.GetHashCode(null), comparer.GetHashCode(null));
+            Assert.AreEqual(comparer.GetHashCode((object)null), comparer.GetHashCode((object)null));
+            Assert.AreEqual(comparer.GetHashCode((int?)null), comparer.GetHashCode((int?)null));
         }
 
         [TestMethod]
@@ -68,7 +69,8 @@ namespace Compare_
             var comparer = Compare<int[]>.Default();
             Assert.IsTrue(comparer.Compare(null, null) == 0);
             Assert.IsTrue(comparer.Equals(null, null));
-            Assert.AreEqual(comparer.GetHashCode(null), comparer.GetHashCode(null));
+            Assert.AreEqual(comparer.GetHashCode((object)null), comparer.GetHashCode((object)null));
+            Assert.AreEqual(comparer.GetHashCode((int[])null), comparer.GetHashCode((int[])null));
         }
 
         [TestMethod]
@@ -78,6 +80,14 @@ namespace Compare_
             var bclDefault = EqualityComparer<int?>.Default;
             Assert.AreEqual(comparer.GetHashCode(13), comparer.GetHashCode(13));
             Assert.AreEqual(bclDefault.GetHashCode(7) == bclDefault.GetHashCode(13), comparer.GetHashCode(7) == comparer.GetHashCode(13));
+        }
+
+        [TestMethod]
+        public void ImplementsGetHashCodeForNull()
+        {
+            var comparer = Compare<int?>.Default();
+            Assert.AreEqual(comparer.GetHashCode((object)null), comparer.GetHashCode((object)null));
+            Assert.AreEqual(comparer.GetHashCode((int?)null), comparer.GetHashCode((int?)null));
         }
     }
 }
