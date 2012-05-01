@@ -9,4 +9,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © 2009-2012 Nito Programs")]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("2.0.1.0")]
+[assembly: AssemblyVersion("2.0.2.0")]
