@@ -50,6 +50,7 @@ namespace ComparerExtensions_
         {
             Assert.IsTrue(Compare<int>.Default().Sequence().Compare(new[] { 3, 4 }, new[] { 3, 4 }) == 0);
             Assert.IsTrue(Compare<int>.Default().Sequence().Compare(new[] { 3, 4, 5 }, new[] { 3, 4, 5 }) == 0);
+            Assert.AreEqual(Compare<int>.Default().Sequence().GetHashCode(new[] { 3, 4 }), Compare<int>.Default().Sequence().GetHashCode(new[] { 3, 4 }));
         }
 
         [TestMethod]

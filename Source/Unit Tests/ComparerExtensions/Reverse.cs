@@ -49,5 +49,13 @@ namespace ComparerExtensions_
             list.Sort(Compare<int?>.Default().Reverse());
             CollectionAssert.AreEqual(new int?[] { 4, 3, 2, 1, 0, null }, list);
         }
+
+        [TestMethod]
+        public void PassesGetHashCodeThrough()
+        {
+            var comparer = Compare<int?>.Default().Reverse();
+            var bclComparer = EqualityComparer<int?>.Default;
+            Assert.AreEqual(bclComparer.GetHashCode(7) == bclComparer.GetHashCode(13), comparer.GetHashCode(7) == comparer.GetHashCode(13));
+        }
     }
 }

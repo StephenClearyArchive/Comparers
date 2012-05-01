@@ -113,6 +113,17 @@ namespace Compare_
             });
             Assert.IsTrue(comparer.Compare(null, null) == 0);
             Assert.IsTrue(comparer.Equals(null, null));
+            Assert.AreEqual(comparer.GetHashCode(null), comparer.GetHashCode(null));
+        }
+
+        [TestMethod]
+        public void OrderByImplementsGetHashCode()
+        {
+            var comparer = Compare<Person>.OrderBy(p => p.LastName);
+            var bclDefault = EqualityComparer<string>.Default;
+            Assert.AreEqual(comparer.GetHashCode(AbeAbrams), comparer.GetHashCode(JackAbrams));
+            Assert.AreEqual(bclDefault.GetHashCode(AbeAbrams.LastName) == bclDefault.GetHashCode(CaseyJohnson.LastName),
+                comparer.GetHashCode(AbeAbrams) == comparer.GetHashCode(CaseyJohnson));
         }
     }
 }
