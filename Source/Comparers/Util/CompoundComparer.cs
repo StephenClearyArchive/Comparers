@@ -53,7 +53,7 @@ namespace Comparers.Util
         /// <returns>A hash code for the specified object.</returns>
         protected override int DoGetHashCode(T obj)
         {
-            return ComparerHelpers.GetHashCodeFromComparer(this.Source, obj) ^ ComparerHelpers.GetHashCodeFromComparer(this.SecondSource, obj);
+            return ComparerHelpers.GetHashCodeFromComparer(this.Source, obj);
         }
 
         /// <summary>
