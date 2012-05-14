@@ -13,6 +13,9 @@ namespace EqualityComparers
     /// <typeparam name="T">The type of objects being compared.</typeparam>
     public sealed class AnonymousEqualityComparer<T> : EqualityComparerBase<T>
     {
+        /// <summary>
+        /// Gets or sets a delegate which compares two objects and returns <c>true</c> if they are equal and <c>false</c> if they are not equal.
+        /// </summary>
         public new Func<T, T, bool> Equals { get; set; }
 
         /// <summary>
@@ -23,7 +26,7 @@ namespace EqualityComparers
         /// <summary>
         /// Initializes a new instance of the <see cref="AnonymousEqualityComparer{T}"/> class.
         /// </summary>
-        /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <see cref="Compare"/> and <see cref="GetHashCode"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <see cref="Compare"/> nor <see cref="GetHashCode"/>.</param>
+        /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <see cref="Equals"/> and <see cref="GetHashCode"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <see cref="Equals"/> nor <see cref="GetHashCode"/>.</param>
         public AnonymousEqualityComparer(bool allowNulls = false)
             : base(allowNulls)
         {
@@ -40,6 +43,12 @@ namespace EqualityComparers
             return this.GetHashCode(obj);
         }
 
+        /// <summary>
+        /// Compares two objects and returns <c>true</c> if they are equal and <c>false</c> if they are not equal.
+        /// </summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
+        /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise, <c>false</c>.</returns>
         protected override bool DoEquals(T x, T y)
         {
             Contract.Assume(this.Equals != null);

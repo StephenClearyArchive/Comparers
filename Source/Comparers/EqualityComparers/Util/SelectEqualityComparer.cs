@@ -59,6 +59,12 @@ namespace EqualityComparers.Util
             return this.Source.GetHashCode(this.selector(obj));
         }
 
+        /// <summary>
+        /// Compares two objects and returns <c>true</c> if they are equal and <c>false</c> if they are not equal.
+        /// </summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
+        /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise, <c>false</c>.</returns>
         protected override bool DoEquals(T x, T y)
         {
             return this.Source.Equals(this.selector(x), this.selector(y));

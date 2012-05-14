@@ -35,6 +35,12 @@ namespace EqualityComparers.Util
             return ret;
         }
 
+        /// <summary>
+        /// Compares two objects and returns <c>true</c> if they are equal and <c>false</c> if they are not equal.
+        /// </summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
+        /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise, <c>false</c>.</returns>
         protected override bool DoEquals(IEnumerable<T> x, IEnumerable<T> y)
         {
             Contract.Assume(x != null);
