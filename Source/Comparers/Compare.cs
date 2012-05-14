@@ -19,7 +19,6 @@ namespace Comparers
         public static IFullComparer<T> Null()
         {
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            Contract.Ensures(Contract.Result<IFullComparer<T>>() == NullComparer<T>.Instance);
             return NullComparer<T>.Instance;
         }
 
@@ -29,7 +28,7 @@ namespace Comparers
         public static IFullComparer<T> Default()
         {
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            return (IFullComparer<T>)ComparerHelpers.NormalizeDefault<T>(null);
+            return (IFullComparer<T>)ComparerHelpers.NormalizeDefault<T>((IComparer<T>)null);
         }
 
         /// <summary>
