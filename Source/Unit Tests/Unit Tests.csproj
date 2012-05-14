@@ -59,9 +59,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Comparers\Comparers.csproj">
+    <ProjectReference Include="..\Comparers\Comparers %28NET4%29.csproj">
       <Project>{FE8300E1-160F-45B9-A0F7-06068274A4C2}</Project>
-      <Name>Comparers</Name>
+      <Name>Comparers %28NET4%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

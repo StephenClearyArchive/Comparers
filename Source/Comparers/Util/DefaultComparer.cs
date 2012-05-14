@@ -129,9 +129,9 @@ namespace Comparers.Util
 
             if (comparableBaseString != null)
                 return "Default(" + comparableBaseString + ")";
-            if (typeofT.GetInterface("IComparable`1") != null)
+            if (typeofT.GetInterfaces().Where(x => x.Name == "IComparable`1").FirstOrDefault() != null)
                 return "Default(" + typeofT.Name + ": IComparable<T>)";
-            if (typeofT.GetInterface("IComparable") != null)
+            if (typeofT.GetInterfaces().Where(x => x.Name == "IComparable").FirstOrDefault() != null)
                 return "Default(" + typeofT.Name + ": IComparable)";
             return "Default(" + typeofT.Name + ": undefined)";
         }
@@ -144,9 +144,9 @@ namespace Comparers.Util
             get
             {
                 var typeofT = typeof(T);
-                if (typeofT.GetInterface("IComparable`1") != null)
+                if (typeofT.GetInterfaces().Where(x => x.Name == "IComparable`1").FirstOrDefault() != null)
                     return true;
-                if (typeofT.GetInterface("IComparable") != null)
+                if (typeofT.GetInterfaces().Where(x => x.Name == "IComparable").FirstOrDefault() != null)
                     return true;
                 return false;
             }
@@ -161,7 +161,7 @@ namespace Comparers.Util
             {
                 if (IsImplementedByType)
                     return true;
-                var enumerable = typeof(T).GetInterface("IEnumerable`1");
+                var enumerable = typeof(T).GetInterfaces().Where(x => x.Name == "IEnumerable`1").FirstOrDefault();
                 if (enumerable == null)
                     return false;
                 var defaultComparerGenericType = typeof(DefaultComparer<>);
