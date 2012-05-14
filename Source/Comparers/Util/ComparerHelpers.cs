@@ -34,7 +34,7 @@ namespace Comparers.Util
         }
 
         /// <summary>
-        /// Converts a <c>null</c> or default comparer into a default comparer that supports hash codes.
+        /// Converts a <c>null</c> or default comparer into a default comparer that supports hash codes (and sequences, if necessary).
         /// </summary>
         /// <typeparam name="T">The type of objects being compared.</typeparam>
         /// <param name="comparer">The comparer. May be <c>null</c>.</param>
