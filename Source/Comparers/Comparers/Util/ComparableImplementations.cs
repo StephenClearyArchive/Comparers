@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Comparers.Util
 {
@@ -84,6 +85,7 @@ namespace Comparers.Util
         /// <param name="equalityComparer">The comparer.</param>
         /// <param name="this">The object doing the implementing.</param>
         /// <param name="obj">The other object.</param>
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-52-0")]
         public static bool ImplementEquals<T>(IEqualityComparer<T> equalityComparer, T @this, object obj)
         {
             Contract.Requires(equalityComparer != null);

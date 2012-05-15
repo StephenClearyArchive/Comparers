@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics.Contracts;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EqualityComparers.Util
 {
@@ -55,6 +56,8 @@ namespace EqualityComparers.Util
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-96-0")]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-102-0")]
         bool System.Collections.IEqualityComparer.Equals(object x, object y)
         {
             if (this.allowNulls)
@@ -79,6 +82,7 @@ namespace EqualityComparers.Util
         /// <param name="obj">The object for which to return a hash code.</param>
         /// <returns>A hash code for the specified object.</returns>
         [ContractOption(category: "contract", setting: "inheritance", toggle: false)]
+        [SuppressMessage("Microsoft.Contracts", "Nonnull-51-0")]
         int System.Collections.IEqualityComparer.GetHashCode(object obj)
         {
             if (this.allowNulls)
