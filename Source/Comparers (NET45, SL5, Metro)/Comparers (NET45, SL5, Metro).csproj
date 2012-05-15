@@ -38,20 +38,56 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Comparers\AnonymousComparer.cs">
-      <Link>AnonymousComparer.cs</Link>
+    <Compile Include="..\Comparers\Comparers\AnonymousComparer.cs">
+      <Link>Comparers\AnonymousComparer.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\ComparableBase.cs">
-      <Link>ComparableBase.cs</Link>
+    <Compile Include="..\Comparers\Comparers\ComparableBase.cs">
+      <Link>Comparers\ComparableBase.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\ComparableBaseWithOperators.cs">
-      <Link>ComparableBaseWithOperators.cs</Link>
+    <Compile Include="..\Comparers\Comparers\ComparableBaseWithOperators.cs">
+      <Link>Comparers\ComparableBaseWithOperators.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\Compare.cs">
-      <Link>Compare.cs</Link>
+    <Compile Include="..\Comparers\Comparers\Compare.cs">
+      <Link>Comparers\Compare.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\ComparerExtensions.cs">
-      <Link>ComparerExtensions.cs</Link>
+    <Compile Include="..\Comparers\Comparers\ComparerExtensions.cs">
+      <Link>Comparers\ComparerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\IFullComparer.cs">
+      <Link>Comparers\IFullComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\ComparableImplementations.cs">
+      <Link>Comparers\Util\ComparableImplementations.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\ComparerBase.cs">
+      <Link>Comparers\Util\ComparerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\ComparerHelpers.cs">
+      <Link>Comparers\Util\ComparerHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\CompoundComparer.cs">
+      <Link>Comparers\Util\CompoundComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\DefaultComparer.cs">
+      <Link>Comparers\Util\DefaultComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\NullComparer.cs">
+      <Link>Comparers\Util\NullComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\ReverseComparer.cs">
+      <Link>Comparers\Util\ReverseComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\SelectComparer.cs">
+      <Link>Comparers\Util\SelectComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\SequenceComparer.cs">
+      <Link>Comparers\Util\SequenceComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\SourceComparerBase.cs">
+      <Link>Comparers\Util\SourceComparerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Util\UtilityComparerExtensions.cs">
+      <Link>Comparers\Util\UtilityComparerExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\ContractExtensions.cs">
       <Link>ContractExtensions.cs</Link>
@@ -95,44 +131,8 @@
     <Compile Include="..\Comparers\EqualityComparers\Util\UtilityEqualityComparerExtensions.cs">
       <Link>EqualityComparers\Util\UtilityEqualityComparerExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\IFullComparer.cs">
-      <Link>IFullComparer.cs</Link>
-    </Compile>
     <Compile Include="..\Comparers\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\ComparableImplementations.cs">
-      <Link>Util\ComparableImplementations.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\ComparerBase.cs">
-      <Link>Util\ComparerBase.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\ComparerHelpers.cs">
-      <Link>Util\ComparerHelpers.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\CompoundComparer.cs">
-      <Link>Util\CompoundComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\DefaultComparer.cs">
-      <Link>Util\DefaultComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\NullComparer.cs">
-      <Link>Util\NullComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\ReverseComparer.cs">
-      <Link>Util\ReverseComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\SelectComparer.cs">
-      <Link>Util\SelectComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\SequenceComparer.cs">
-      <Link>Util\SequenceComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\SourceComparerBase.cs">
-      <Link>Util\SourceComparerBase.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\Util\UtilityComparerExtensions.cs">
-      <Link>Util\UtilityComparerExtensions.cs</Link>
     </Compile>
     <Compile Include="Contracts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

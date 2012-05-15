@@ -160,9 +160,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnonymousComparer.cs" />
-    <Compile Include="ComparableBase.cs" />
-    <Compile Include="ComparableBaseWithOperators.cs" />
+    <Compile Include="Comparers\AnonymousComparer.cs" />
+    <Compile Include="Comparers\ComparableBase.cs" />
+    <Compile Include="Comparers\ComparableBaseWithOperators.cs" />
     <Compile Include="ContractExtensions.cs" />
     <Compile Include="EqualityComparers\AnonymousEqualityComparer.cs" />
     <Compile Include="EqualityComparers\EquatableBaseWithOperators.cs" />
@@ -171,30 +171,30 @@
     <Compile Include="EqualityComparers\EqualityComparerExtensions.cs" />
     <Compile Include="EqualityComparers\Util\EqualityComparerHelpers.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
-    <Compile Include="Util\ComparableImplementations.cs" />
-    <Compile Include="ComparerExtensions.cs" />
-    <Compile Include="Compare.cs" />
-    <Compile Include="Util\CompoundComparer.cs" />
+    <Compile Include="Comparers\Util\ComparableImplementations.cs" />
+    <Compile Include="Comparers\ComparerExtensions.cs" />
+    <Compile Include="Comparers\Compare.cs" />
+    <Compile Include="Comparers\Util\CompoundComparer.cs" />
     <Compile Include="EqualityComparers\Util\CompoundEqualityComparer.cs" />
     <Compile Include="EqualityComparers\Util\ReferenceEqualityComparer.cs" />
     <Compile Include="EqualityComparers\Util\UtilityEqualityComparerExtensions.cs" />
     <Compile Include="EqualityComparers\Util\SelectEqualityComparer.cs" />
     <Compile Include="EqualityComparers\Util\SequenceEqualityComparer.cs" />
     <Compile Include="EqualityComparers\Util\SourceEqualityComparerBase.cs" />
-    <Compile Include="Util\DefaultComparer.cs" />
-    <Compile Include="IFullComparer.cs" />
+    <Compile Include="Comparers\Util\DefaultComparer.cs" />
+    <Compile Include="Comparers\IFullComparer.cs" />
     <Compile Include="EqualityComparers\Util\EqualityComparerBase.cs" />
-    <Compile Include="Util\NullComparer.cs" />
+    <Compile Include="Comparers\Util\NullComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\ReverseComparer.cs" />
-    <Compile Include="Util\SelectComparer.cs" />
-    <Compile Include="Util\SequenceComparer.cs">
+    <Compile Include="Comparers\Util\ReverseComparer.cs" />
+    <Compile Include="Comparers\Util\SelectComparer.cs" />
+    <Compile Include="Comparers\Util\SequenceComparer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Util\ComparerBase.cs" />
-    <Compile Include="Util\UtilityComparerExtensions.cs" />
-    <Compile Include="Util\ComparerHelpers.cs" />
-    <Compile Include="Util\SourceComparerBase.cs" />
+    <Compile Include="Comparers\Util\ComparerBase.cs" />
+    <Compile Include="Comparers\Util\UtilityComparerExtensions.cs" />
+    <Compile Include="Comparers\Util\ComparerHelpers.cs" />
+    <Compile Include="Comparers\Util\SourceComparerBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
