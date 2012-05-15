@@ -45,6 +45,18 @@ namespace EqualityComparers.Util
         {
             Contract.Assume(x != null);
             Contract.Assume(y != null);
+
+            var xCollection = x as ICollection<T>;
+            if (xCollection != null)
+            {
+                var yCollection = y as ICollection<T>;
+                if (yCollection != null)
+                {
+                    if (xCollection.Count != yCollection.Count)
+                        return false;
+                }
+            }
+
             using (var xIter = x.GetEnumerator())
             using (var yIter = y.GetEnumerator())
             {
