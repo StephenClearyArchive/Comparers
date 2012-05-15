@@ -65,7 +65,7 @@ namespace EqualityComparers.Util
             else
             {
                 if (x == null || y == null)
-                    return x == y;
+                    return (x == null && y == null);
                 Contract.Assume(x is T);
                 Contract.Assume(y is T);
             }
@@ -103,6 +103,12 @@ namespace EqualityComparers.Util
         /// <returns><c>true</c> if <paramref name="x"/> is equal to <paramref name="y"/>; otherwise <c>false</c>.</returns>
         public bool Equals(T x, T y)
         {
+            if (!this.allowNulls)
+            {
+                if (x == null || y == null)
+                    return (x == null && y == null);
+            }
+
             return this.DoEquals(x, y);
         }
 
