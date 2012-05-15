@@ -55,6 +55,15 @@
     <Compile Include="Compare\Default.cs" />
     <Compile Include="Compare\Key.cs" />
     <Compile Include="Compare\Null.cs" />
+    <Compile Include="EquatableBase\DefaultComparer.cs" />
+    <Compile Include="EquatableBase\Operators.cs" />
+    <Compile Include="EqualityComparerExtensions\SelectEquateFrom.cs" />
+    <Compile Include="EqualityComparerExtensions\EquateSequence.cs" />
+    <Compile Include="EqualityComparerExtensions\ThenEquateBy.cs" />
+    <Compile Include="EqualityCompare\Reference.cs" />
+    <Compile Include="EqualityCompare\Default.cs" />
+    <Compile Include="EqualityCompare\Key.cs" />
+    <Compile Include="EqualityCompare\Null.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
