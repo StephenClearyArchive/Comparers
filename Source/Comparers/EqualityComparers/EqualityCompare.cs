@@ -49,11 +49,11 @@ namespace EqualityComparers
         /// <param name="keyComparer">The key comparer. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <paramref name="selector"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <paramref name="selector"/>.</param>
         /// <returns>A key comparer.</returns>
-        public static IEqualityComparer<T> OrderBy<TKey>(Func<T, TKey> selector, IEqualityComparer<TKey> keyComparer = null, bool allowNulls = false)
+        public static IEqualityComparer<T> EquateBy<TKey>(Func<T, TKey> selector, IEqualityComparer<TKey> keyComparer = null, bool allowNulls = false)
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<IEqualityComparer<T>>() != null);
-            return Null().ThenBy(selector, keyComparer, allowNulls);
+            return Null().ThenEquateBy(selector, keyComparer, allowNulls);
         }
     }
 }

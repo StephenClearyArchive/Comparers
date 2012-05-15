@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Comparers;
+using EqualityComparers;
 using Comparers.Util;
 
 namespace ComparerExtensions_

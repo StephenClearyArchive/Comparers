@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Comparers;
+using EqualityComparers;
 
 namespace Compare_
 {
@@ -14,6 +15,7 @@ namespace Compare_
         private static readonly Person JackAbrams = new Person { FirstName = "Jack", LastName = "Abrams" };
         private static readonly Person WilliamAbrams = new Person { FirstName = "William", LastName = "Abrams" };
         private static readonly Person CaseyJohnson = new Person { FirstName = "Casey", LastName = "Johnson" };
+        private static readonly Person nullAbrams = new Person { FirstName = null, LastName = "Abrams" };
 
         [TestMethod]
         public void OrderBySortsByKey()
@@ -82,9 +84,9 @@ namespace Compare_
         [TestMethod]
         public void OrderBySortsNullsAsLowest()
         {
-            var list = new List<Person> { AbeAbrams, JackAbrams, null, WilliamAbrams, CaseyJohnson };
+            var list = new List<Person> { AbeAbrams, JackAbrams, null, WilliamAbrams, nullAbrams, CaseyJohnson };
             list.Sort(Compare<Person>.OrderBy(p => p.FirstName));
-            CollectionAssert.AreEqual(new[] { null, AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams }, list);
+            CollectionAssert.AreEqual(new[] { null, nullAbrams, AbeAbrams, CaseyJohnson, JackAbrams, WilliamAbrams }, list);
         }
 
         [TestMethod]
