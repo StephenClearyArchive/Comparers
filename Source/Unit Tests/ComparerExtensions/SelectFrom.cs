@@ -10,7 +10,7 @@ using Comparers.Util;
 namespace ComparerExtensions_
 {
     [TestClass]
-    public class _Select
+    public class _SelectFrom
     {
         private static List<Person> GetPeople()
         {
