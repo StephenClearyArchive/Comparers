@@ -2,7 +2,7 @@
 <package>
  <metadata>
   <id>Comparers</id>
-  <version>2.0.2</version>
+  <version>3.0.0</version>
   <title>Comparers</title>
   <authors>Stephen Cleary</authors>
   <owners>Stephen Cleary</owners>
@@ -15,6 +15,7 @@
    <reference file="Comparers.dll" />
   </references>
   <releaseNotes>
+   [3.0.0] Added EqualityComparers; added .NET 4.5, SL4, SL5, Metro, and XBox support; fixed CompoundComparer.GetHashCode.
    [2.0.2] Modified NuGet package metadata.
    [2.0.1] Removed contract exceptions when passing null to GetHashCode.
    [2.0.0] More consistent API; added sequence comparers, comparison operators, and the ability to override null object comparison.
@@ -26,6 +27,18 @@
   <file src="Comparers\bin\Release\Comparers.xml" target="lib\net40-client" />
   <file src="Comparers\bin\Release\Comparers.pdb" target="lib\net40-client" />
   <file src="Comparers\bin\Release\CodeContracts\Comparers.Contracts.dll" target="lib\net40-client\CodeContracts" />
-  <file src="Comparers\**\*.cs" target="src\Comparers" />
+  <file src="**\*.cs" target="src" />
+  <file src="Comparers (Metro, SL5)\bin\Release\Comparers.dll" target="lib\sl5" />
+  <file src="Comparers (Metro, SL5)\bin\Release\Comparers.xml" target="lib\sl5" />
+  <file src="Comparers (Metro, SL5)\bin\Release\Comparers.pdb" target="lib\sl5" />
+  <file src="Comparers (Metro, SL5)\bin\Release\Comparers.dll" target="lib\netcore45" />
+  <file src="Comparers (Metro, SL5)\bin\Release\Comparers.xml" target="lib\netcore45" />
+  <file src="Comparers (Metro, SL5)\bin\Release\Comparers.pdb" target="lib\netcore45" />
+  <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.dll" target="lib\sl4" />
+  <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.xml" target="lib\sl4" />
+  <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.pdb" target="lib\sl4" />
+  <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.dll" target="lib\sl3-wp" />
+  <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.xml" target="lib\sl3-wp" />
+  <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.pdb" target="lib\sl3-wp" />
  </files>
 </package>

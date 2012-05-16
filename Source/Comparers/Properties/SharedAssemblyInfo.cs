@@ -8,4 +8,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © 2009-2012 Nito Programs")]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("2.0.2.0")]
+[assembly: AssemblyVersion("3.0.0.0")]
