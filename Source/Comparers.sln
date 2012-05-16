@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers (SL4, WP7, XBox)", "Comparers (SL4, WP7, XBox)\Comparers (SL4, WP7, XBox).csproj", "{238B510E-25EE-4F9D-80CE-BE9987EE8AD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers (NET45, SL5, Metro)", "Comparers (NET45, SL5, Metro)\Comparers (NET45, SL5, Metro).csproj", "{E78601BD-CFEC-4222-8CBB-2A907AE8D81C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers (Metro, SL5)", "Comparers (Metro, SL5)\Comparers (Metro, SL5).csproj", "{E78601BD-CFEC-4222-8CBB-2A907AE8D81C}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
