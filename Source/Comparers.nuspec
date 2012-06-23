@@ -2,7 +2,7 @@
 <package>
  <metadata>
   <id>Comparers</id>
-  <version>3.0.0</version>
+  <version>$version$</version>
   <title>Comparers</title>
   <authors>Stephen Cleary</authors>
   <owners>Stephen Cleary</owners>
@@ -15,6 +15,7 @@
    <reference file="Comparers.dll" />
   </references>
   <releaseNotes>
+   [3.0.1] Modified NuGet package metadata.
    [3.0.0] Added EqualityComparers; added .NET 4.5, SL4, SL5, Metro, and XBox support; fixed CompoundComparer.GetHashCode.
    [2.0.2] Modified NuGet package metadata.
    [2.0.1] Removed contract exceptions when passing null to GetHashCode.

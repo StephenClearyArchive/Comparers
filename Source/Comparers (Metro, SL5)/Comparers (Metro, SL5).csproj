@@ -38,6 +38,9 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="..\Comparers\Comparers\AnonymousComparer.cs">
       <Link>Comparers\AnonymousComparer.cs</Link>
     </Compile>

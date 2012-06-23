@@ -160,6 +160,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="Comparers\AnonymousComparer.cs" />
     <Compile Include="Comparers\ComparableBase.cs" />
     <Compile Include="Comparers\ComparableBaseWithOperators.cs" />

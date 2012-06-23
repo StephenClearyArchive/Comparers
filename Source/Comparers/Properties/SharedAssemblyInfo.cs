@@ -7,5 +7,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("Nito.Comparers")]
 [assembly: AssemblyCopyright("Copyright © 2009-2012 Nito Programs")]
 [assembly: CLSCompliant(true)]
-
-[assembly: AssemblyVersion("3.0.0.0")]
