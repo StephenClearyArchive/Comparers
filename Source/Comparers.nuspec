@@ -25,6 +25,7 @@
   </releaseNotes>
  </metadata>
  <files>
+  <file src="Readme.txt" target="" />
   <file src="Comparers\bin\Release\Comparers.dll" target="lib\net40-client" />
   <file src="Comparers\bin\Release\Comparers.xml" target="lib\net40-client" />
   <file src="Comparers\bin\Release\Comparers.pdb" target="lib\net40-client" />
