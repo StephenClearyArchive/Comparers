@@ -6,8 +6,8 @@
   <title>Comparers</title>
   <authors>Stephen Cleary</authors>
   <owners>Stephen Cleary</owners>
-  <summary>IComparer&lt;T&gt; implementations and extension methods.</summary>
-  <description>IComparer&lt;T&gt; implementations and extension methods.</description>
+  <summary>IComparer&lt;T&gt; and IEqualityComparer&lt;T&gt; implementations, extension methods, and comparable/equatable helper types.</summary>
+  <description>IComparer&lt;T&gt; and IEqualityComparer&lt;T&gt; implementations, extension methods, and comparable/equatable helper types.</description>
   <language>en-US</language>
   <projectUrl>http://comparers.codeplex.com/</projectUrl>
   <iconUrl>http://download.codeplex.com/Download?ProjectName=comparers&amp;DownloadId=404414</iconUrl>
