@@ -47,11 +47,14 @@
     <Compile Include="..\Comparers\Comparers\ComparableBaseWithOperators.cs">
       <Link>Comparers\ComparableBaseWithOperators.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\Comparers\Compare.cs">
-      <Link>Comparers\Compare.cs</Link>
+    <Compile Include="..\Comparers\Comparers\Compare %28of T%29.cs">
+      <Link>Comparers\Compare %28of T%29.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\Comparers\ComparerExtensions.cs">
       <Link>Comparers\ComparerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\CompareSource.cs">
+      <Link>Comparers\CompareSource.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\Comparers\IFullComparer.cs">
       <Link>Comparers\IFullComparer.cs</Link>
@@ -95,11 +98,14 @@
     <Compile Include="..\Comparers\EqualityComparers\AnonymousEqualityComparer.cs">
       <Link>EqualityComparers\AnonymousEqualityComparer.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\EqualityComparers\EqualityCompare.cs">
-      <Link>EqualityComparers\EqualityCompare.cs</Link>
+    <Compile Include="..\Comparers\EqualityComparers\EqualityCompare %28of T%29.cs">
+      <Link>EqualityComparers\EqualityCompare %28of T%29.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\EqualityComparers\EqualityComparerExtensions.cs">
       <Link>EqualityComparers\EqualityComparerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\EqualityComparers\EqualityCompareSource.cs">
+      <Link>EqualityComparers\EqualityCompareSource.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\EqualityComparers\EquatableBase.cs">
       <Link>EqualityComparers\EquatableBase.cs</Link>
