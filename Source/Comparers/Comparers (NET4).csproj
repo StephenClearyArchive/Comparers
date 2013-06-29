@@ -163,10 +163,16 @@
     <Compile Include="Comparers\AnonymousComparer.cs" />
     <Compile Include="Comparers\ComparableBase.cs" />
     <Compile Include="Comparers\ComparableBaseWithOperators.cs" />
+    <Compile Include="Comparers\Compare.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Comparers\CompareSource.cs" />
     <Compile Include="Comparers\Compare %28of T%29.cs" />
     <Compile Include="ContractExtensions.cs" />
     <Compile Include="EqualityComparers\AnonymousEqualityComparer.cs" />
+    <Compile Include="EqualityComparers\EqualityCompare.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="EqualityComparers\EqualityCompareSource.cs" />
     <Compile Include="EqualityComparers\EqualityCompare %28of T%29.cs" />
     <Compile Include="EqualityComparers\EquatableBaseWithOperators.cs" />
