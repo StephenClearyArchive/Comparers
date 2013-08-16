@@ -1,12 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers (NET4)", "Comparers\Comparers (NET4).csproj", "{FE8300E1-160F-45B9-A0F7-06068274A4C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Tests", "Unit Tests\Unit Tests.csproj", "{2A5C8C9A-B459-4682-9D9C-DA723F29A3C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BA90366A-16CE-4F8B-B466-E51C4DB6DE21}"
 	ProjectSection(SolutionItems) = preProject
+		Build.ps1 = Build.ps1
+		Comparers.nuspec = Comparers.nuspec
 		Comparers.vsmdi = Comparers.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings

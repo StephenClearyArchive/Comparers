@@ -16,7 +16,7 @@
    <reference file="Comparers.dll" />
   </references>
   <releaseNotes>
-   [3.0.1] Modified NuGet package metadata.
+   [3.1.0] Modified NuGet package metadata. Enabled code contracts for Metro and SL5 projects.
    [3.0.0] Added EqualityComparers; added .NET 4.5, SL4, SL5, Metro, and XBox support; fixed CompoundComparer.GetHashCode.
    [2.0.2] Modified NuGet package metadata.
    [2.0.1] Removed contract exceptions when passing null to GetHashCode.
@@ -34,9 +34,11 @@
   <file src="Comparers (Metro, SL5)\bin\Release\Comparers.dll" target="lib\sl5" />
   <file src="Comparers (Metro, SL5)\bin\Release\Comparers.xml" target="lib\sl5" />
   <file src="Comparers (Metro, SL5)\bin\Release\Comparers.pdb" target="lib\sl5" />
+  <file src="Comparers (Metro, SL5)\bin\Release\CodeContracts\Comparers.Contracts.dll" target="lib\sl5\CodeContracts" />
   <file src="Comparers (Metro, SL5)\bin\Release\Comparers.dll" target="lib\netcore45" />
   <file src="Comparers (Metro, SL5)\bin\Release\Comparers.xml" target="lib\netcore45" />
   <file src="Comparers (Metro, SL5)\bin\Release\Comparers.pdb" target="lib\netcore45" />
+  <file src="Comparers (Metro, SL5)\bin\Release\CodeContracts\Comparers.Contracts.dll" target="lib\netcore45\CodeContracts" />
   <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.dll" target="lib\sl4" />
   <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.xml" target="lib\sl4" />
   <file src="Comparers (SL4, WP7, XBox)\bin\Release\Comparers.pdb" target="lib\sl4" />
