@@ -79,7 +79,7 @@ namespace Comparers
         /// <returns>A comparer that will perform a lexicographical ordering on a sequence of items.</returns>
         public static IFullComparer<IEnumerable<T>> Sequence<T>(this IComparer<T> source)
         {
-            Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<IFullComparer<IEnumerable<T>>>() != null);
             return new SequenceComparer<T>(source);
         }
     }

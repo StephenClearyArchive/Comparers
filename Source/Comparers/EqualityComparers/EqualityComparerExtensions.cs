@@ -50,7 +50,7 @@ namespace EqualityComparers
         /// <returns>A comparer that will perform a lexicographical ordering on a sequence of items.</returns>
         public static IEqualityComparer<IEnumerable<T>> EquateSequence<T>(this IEqualityComparer<T> source)
         {
-            Contract.Ensures(Contract.Result<IEqualityComparer<T>>() != null);
+            Contract.Ensures(Contract.Result<IEqualityComparer<IEnumerable<T>>>() != null);
             return new SequenceEqualityComparer<T>(source);
         }
     }
