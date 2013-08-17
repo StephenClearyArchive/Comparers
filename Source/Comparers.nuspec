@@ -11,12 +11,12 @@
     <language>en-US</language>
     <projectUrl>http://comparers.codeplex.com/</projectUrl>
     <iconUrl>http://download.codeplex.com/Download?ProjectName=comparers&amp;DownloadId=404414</iconUrl>
-    <tags>nito icomparer comparer icomparable iequatable iequalitycomparer net40</tags>
+    <tags>nito icomparer comparer icomparable iequatable iequalitycomparer net45 net40 win8 netcore45 sl5 sl4 wp8 wp75 wp71 wp70</tags>
     <references>
       <reference file="Comparers.dll" />
     </references>
     <releaseNotes>
-      [3.1.0] Modified NuGet package metadata. Enabled code contracts for Metro and SL5 projects. Added PCL support.
+      [3.1.0] Modified NuGet package metadata. Enabled code contracts for Metro and SL5 projects. Added PCL support. Added Readme.
       [3.0.0] Added EqualityComparers; added .NET 4.5, SL4, SL5, Metro, and XBox support; fixed CompoundComparer.GetHashCode.
       [2.0.2] Modified NuGet package metadata.
       [2.0.1] Removed contract exceptions when passing null to GetHashCode.
