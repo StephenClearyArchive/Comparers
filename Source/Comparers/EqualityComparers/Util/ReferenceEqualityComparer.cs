@@ -25,7 +25,7 @@ namespace EqualityComparers.Util
         private static readonly ReferenceEqualityComparer<T> instance = new ReferenceEqualityComparer<T>();
 
         /// <summary>
-        /// Gets the null comparer for this type.
+        /// Gets the reference comparer for this type.
         /// </summary>
         public static ReferenceEqualityComparer<T> Instance
         {
