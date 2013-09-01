@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Diagnostics.Contracts;
 
@@ -43,7 +44,7 @@ namespace EqualityComparers.Util
         /// <returns>A hash code for the specified object.</returns>
         protected override int DoGetHashCode(T obj)
         {
-            return obj.GetHashCode();
+            return RuntimeHelpers.GetHashCode(obj);
         }
 
         /// <summary>
