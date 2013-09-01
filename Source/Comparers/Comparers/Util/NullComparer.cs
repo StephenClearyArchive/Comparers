@@ -43,7 +43,7 @@ namespace Comparers.Util
         /// <returns>A hash code for the specified object.</returns>
         protected override int DoGetHashCode(T obj)
         {
-            return 0;
+            return unchecked((int)2166136261);
         }
 
         /// <summary>

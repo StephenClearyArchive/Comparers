@@ -29,10 +29,16 @@ namespace EqualityComparers.Util
         protected override int DoGetHashCode(IEnumerable<T> obj)
         {
             Contract.Assume(obj != null);
-            int ret = 0;
-            foreach (var item in obj)
-                ret ^= this.Source.GetHashCode(item);
-            return ret;
+            unchecked
+            {
+                var ret = (int)2166136261;
+                foreach (var item in obj)
+                {
+                    ret += Source.GetHashCode(item);
+                    ret *= 16777619;
+                }
+                return ret;
+            }
         }
 
         /// <summary>

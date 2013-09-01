@@ -54,9 +54,15 @@ namespace EqualityComparers.Util
         /// <returns>A hash code for the specified object.</returns>
         protected override int DoGetHashCode(T obj)
         {
-            if (this.Source is NullComparer<T>)
-                return this.SecondSource.GetHashCode(obj);
-            return this.Source.GetHashCode(obj);
+            unchecked
+            {
+                var ret = (int)2166136261;
+                ret += Source.GetHashCode(obj);
+                ret *= 16777619;
+                ret += SecondSource.GetHashCode(obj);
+                ret *= 16777619;
+                return ret;
+            }
         }
 
         /// <summary>

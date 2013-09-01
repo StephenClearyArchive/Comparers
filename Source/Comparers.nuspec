@@ -16,7 +16,7 @@
       <reference file="Comparers.dll" />
     </references>
     <releaseNotes>
-      [3.1.0] Modified NuGet package metadata. Enabled code contracts for Metro and SL5 projects. Added PCL support. Added Readme. Added implicit template argument deduction.
+      [3.1.0] Modified NuGet package metadata. Enabled code contracts for Metro and SL5 projects. Added PCL support. Added Readme. Added implicit template argument deduction. Better hash code implementations.
       [3.0.0] Added EqualityComparers; added .NET 4.5, SL4, SL5, Metro, and XBox support; fixed CompoundComparer.GetHashCode.
       [2.0.2] Modified NuGet package metadata.
       [2.0.1] Removed contract exceptions when passing null to GetHashCode.
