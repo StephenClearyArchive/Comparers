@@ -11,6 +11,7 @@ namespace Comparers
     /// Provides implementations for comparison, equality, and hash code methods. These implementations assume that there will only be one derived type that defines comparison/equality.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
+    [Serializable]
     public abstract class ComparableBase<T> : IEquatable<T>, IComparable, IComparable<T> where T : ComparableBase<T>
     {
         /// <summary>

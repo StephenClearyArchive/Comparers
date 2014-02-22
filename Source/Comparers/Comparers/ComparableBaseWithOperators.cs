@@ -11,6 +11,7 @@ namespace Comparers
     /// Provides implementations for comparison, equality, and hash code methods, along with overloaded operators. Note: overloaded operators should only be considered for immutable reference types. These implementations assume that there will only be one derived type that defines comparison/equality.
     /// </summary>
     /// <typeparam name="T">The type of objects being compared.</typeparam>
+    [Serializable]
     public abstract class ComparableBaseWithOperators<T> : ComparableBase<T> where T : ComparableBaseWithOperators<T>
     {
         /// <summary>
