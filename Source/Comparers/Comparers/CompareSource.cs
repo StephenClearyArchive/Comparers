@@ -10,41 +10,22 @@ namespace Comparers
     /// <summary>
     /// Provides sources for comparers.
     /// </summary>
-    public static class Compare
+    /// <typeparam name="T">The type of objects being compared.</typeparam>
+    public sealed class CompareSource<T>
     {
         /// <summary>
-        /// Gets a comparer source for type <typeparamref name="T"/>.
+        /// Gets the null comparer for this type, which evaluates all objects as equivalent.
         /// </summary>
-        /// <typeparam name="T">The type of objects being compared.</typeparam>
-        /// <param name="_">Parameter that is only used to derive the type <typeparamref name="T"/>.</param>
-        public static CompareSource<T> Type<T>(T _ = default(T))
-        {
-            return new CompareSource<T>();
-        }
-    }
-
-    /// <summary>
-    /// Provides sources for comparers, automatically deriving the type of objects to be compared from an instance of that type.
-    /// </summary>
-    public static class Compare
-    {
-        /// <summary>
-        /// Gets the null comparer for the specified type, which evaluates all objects as equivalent.
-        /// </summary>
-        /// <typeparam name="T">The type of objects being compared.</typeparam>
-        /// <param name="instance">An instance of the type to compare. This may be <c>null</c>.</param>
-        public static IFullComparer<T> Null<T>(T instance)
+        public IFullComparer<T> Null()
         {
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
             return Compare<T>.Null();
         }
 
         /// <summary>
-        /// Gets the default comparer for the specified type.
+        /// Gets the default comparer for this type.
         /// </summary>
-        /// <typeparam name="T">The type of objects being compared.</typeparam>
-        /// <param name="instance">An instance of the type to compare. This may be <c>null</c>.</param>
-        public static IFullComparer<T> Default<T>(T instance)
+        public IFullComparer<T> Default()
         {
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
             return Compare<T>.Default();
@@ -53,33 +34,31 @@ namespace Comparers
         /// <summary>
         /// Creates a key comparer.
         /// </summary>
-        /// <typeparam name="T">The type of objects being compared.</typeparam>
         /// <typeparam name="TKey">The type of key objects being compared.</typeparam>
-        /// <param name="instance">An instance of the type to compare. This may be <c>null</c>.</param>
         /// <param name="selector">The key selector. May not be <c>null</c>.</param>
         /// <param name="keyComparer">The key comparer. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <paramref name="selector"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <paramref name="selector"/>.</param>
-        public static IFullComparer<T> OrderBy<T, TKey>(T instance, Func<T, TKey> selector, IComparer<TKey> keyComparer = null, bool allowNulls = false)
+        /// <returns>A key comparer.</returns>
+        public IFullComparer<T> OrderBy<TKey>(Func<T, TKey> selector, IComparer<TKey> keyComparer = null, bool allowNulls = false)
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            return Compare<T>.OrderBy<TKey>(selector, keyComparer, allowNulls);
+            return Compare<T>.OrderBy(selector, keyComparer, allowNulls);
         }
 
         /// <summary>
         /// Creates a descending key comparer.
         /// </summary>
-        /// <typeparam name="T">The type of objects being compared.</typeparam>
         /// <typeparam name="TKey">The type of key objects being compared.</typeparam>
-        /// <param name="instance">An instance of the type to compare. This may be <c>null</c>.</param>
         /// <param name="selector">The key selector. May not be <c>null</c>.</param>
         /// <param name="keyComparer">The key comparer. The returned comparer applies this key comparer in reverse. Defaults to <c>null</c>. If this is <c>null</c>, the default comparer is used.</param>
         /// <param name="allowNulls">A value indicating whether <c>null</c> values are passed to <paramref name="selector"/>. If <c>false</c>, then <c>null</c> values are considered less than any non-<c>null</c> values and are not passed to <paramref name="selector"/>.</param>
-        public static IFullComparer<T> OrderByDescending<T, TKey>(T instance, Func<T, TKey> selector, IComparer<TKey> keyComparer = null, bool allowNulls = false)
+        /// <returns>A key comparer.</returns>
+        public IFullComparer<T> OrderByDescending<TKey>(Func<T, TKey> selector, IComparer<TKey> keyComparer = null, bool allowNulls = false)
         {
             Contract.Requires(selector != null);
             Contract.Ensures(Contract.Result<IFullComparer<T>>() != null);
-            return Compare<T>.OrderByDescending<TKey>(selector, keyComparer, allowNulls);
+            return Compare<T>.OrderByDescending(selector, keyComparer, allowNulls);
         }
     }
 }
