@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NO_GENERIC_VARIANCE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NO_GENERIC_VARIANCE NO_SERIALIZATION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -30,7 +30,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;NO_GENERIC_VARIANCE</DefineConstants>
+    <DefineConstants>TRACE;NO_GENERIC_VARIANCE NO_SERIALIZATION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -85,9 +85,6 @@
     <Compile Include="..\Comparers\Comparers\Compare %28of T%29.cs">
       <Link>Comparers\Compare %28of T%29.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\Comparers\Compare.cs">
-      <Link>Comparers\Compare.cs</Link>
-    </Compile>
     <Compile Include="..\Comparers\Comparers\ComparerExtensions.cs">
       <Link>Comparers\ComparerExtensions.cs</Link>
     </Compile>
@@ -138,9 +135,6 @@
     </Compile>
     <Compile Include="..\Comparers\EqualityComparers\EqualityCompare %28of T%29.cs">
       <Link>EqualityComparers\EqualityCompare %28of T%29.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\EqualityComparers\EqualityCompare.cs">
-      <Link>EqualityComparers\EqualityCompare.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\EqualityComparers\EqualityComparerExtensions.cs">
       <Link>EqualityComparers\EqualityComparerExtensions.cs</Link>

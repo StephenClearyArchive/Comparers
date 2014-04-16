@@ -50,12 +50,5 @@ namespace Compare_
             Assert.AreEqual(comparer.GetHashCode((object)null), comparer.GetHashCode((object)null));
             Assert.AreEqual(comparer.GetHashCode((int?)null), comparer.GetHashCode((int?)null));
         }
-
-        [TestMethod]
-        public void DerivesTypeFromInstanceParameter()
-        {
-            var anonymousList = Enumerable.Empty<int>().Select(x => new { Name = "Bob", Index = x }).ToList();
-            var comparer = Compare.Null(anonymousList.FirstOrDefault());
-        }
     }
 }

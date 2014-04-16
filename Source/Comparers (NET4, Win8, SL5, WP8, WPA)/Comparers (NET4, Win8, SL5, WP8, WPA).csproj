@@ -11,7 +11,7 @@
     <RootNamespace>Comparers</RootNamespace>
     <AssemblyName>Comparers</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile37</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile328</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NO_SERIALIZATION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -64,7 +64,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;NO_SERIALIZATION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -123,9 +123,6 @@
     <Compile Include="..\Comparers\Comparers\Compare %28of T%29.cs">
       <Link>Comparers\Compare %28of T%29.cs</Link>
     </Compile>
-    <Compile Include="..\Comparers\Comparers\Compare.cs">
-      <Link>Comparers\Compare.cs</Link>
-    </Compile>
     <Compile Include="..\Comparers\Comparers\ComparerExtensions.cs">
       <Link>Comparers\ComparerExtensions.cs</Link>
     </Compile>
@@ -176,9 +173,6 @@
     </Compile>
     <Compile Include="..\Comparers\EqualityComparers\EqualityCompare %28of T%29.cs">
       <Link>EqualityComparers\EqualityCompare %28of T%29.cs</Link>
-    </Compile>
-    <Compile Include="..\Comparers\EqualityComparers\EqualityCompare.cs">
-      <Link>EqualityComparers\EqualityCompare.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\EqualityComparers\EqualityComparerExtensions.cs">
       <Link>EqualityComparers\EqualityComparerExtensions.cs</Link>
