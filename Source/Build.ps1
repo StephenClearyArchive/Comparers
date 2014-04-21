@@ -47,7 +47,8 @@ if ($extraVersion -Eq "") {
 } else {
   $fullVersion = $version + "-" + $extraVersion
 }
-$nuspec = Get-ChildItem '.' -Filter '*.nuspec'
-&$nuget.FullName pack -Symbols $nuspec -Version $version -OutputDirectory ..\Binaries
+&$nuget.FullName pack -Symbols Comparers.nuspec -Version $version -OutputDirectory ..\Binaries
+&$nuget.FullName pack -Symbols Comparers.Rx.nuspec -Version $version -OutputDirectory ..\Binaries
+&$nuget.FullName pack -Symbols Comparers.Ix.nuspec -Version $version -OutputDirectory ..\Binaries
 
 "Built " + $nuspec.BaseName + " version $fullVersion"

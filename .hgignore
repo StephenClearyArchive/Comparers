@@ -6,3 +6,4 @@ glob:**/TestResults/**
 glob:Source/AssemblyVersion.cs
 syntax: glob
 **/.localhistory/**
+**/packages/**

@@ -161,13 +161,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyVersion.cs">
-      <Link>AssemblyVersion.cs</Link>
+      <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="Comparers\AnonymousComparer.cs" />
     <Compile Include="Comparers\ComparableBase.cs" />
     <Compile Include="Comparers\ComparableBaseWithOperators.cs" />
     <Compile Include="Comparers\CompareSource.cs" />
     <Compile Include="Comparers\Compare %28of T%29.cs" />
+    <Compile Include="Comparers\Linq\EnumerableExtensions.cs" />
     <Compile Include="ContractExtensions.cs" />
     <Compile Include="EqualityComparers\AnonymousEqualityComparer.cs" />
     <Compile Include="EqualityComparers\EqualityCompareSource.cs" />

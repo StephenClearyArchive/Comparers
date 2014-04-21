@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Comparers.Rx</id>
+    <version>$version$</version>
+    <title>Comparers for Rx</title>
+    <authors>Stephen Cleary</authors>
+    <owners>Stephen Cleary</owners>
+    <summary>IComparer&lt;T&gt; and IEqualityComparer&lt;T&gt; implementations, extension methods, and comparable/equatable helper types.</summary>
+    <description>IComparer&lt;T&gt; and IEqualityComparer&lt;T&gt; implementations, extension methods, and comparable/equatable helper types.</description>
+    <language>en-US</language>
+    <projectUrl>http://comparers.codeplex.com/</projectUrl>
+    <iconUrl>http://download.codeplex.com/Download?ProjectName=comparers&amp;DownloadId=404414</iconUrl>
+    <tags>comparer rx icomparer icomparable iequatable iequalitycomparer net45 net40 win8 netcore45 sl5 wp8 nito</tags>
+    <dependencies>
+      <dependency id="Rx-Linq" version="2.2.2"/>
+    </dependencies>
+    <releaseNotes>
+      [3.1.0] Implicit type detection with LINQ/Rx/Ix support. Added PCL support. Better hash code implementations.
+    </releaseNotes>
+  </metadata>
+  <files>
+    <file src="Readme.txt" target="" />
+    <file src="**\*.cs" target="src" />
+
+    <file src="Comparers.Rx (NET4, Win8, SL5, WP8)\bin\Release\Comparers.Rx.dll" target="lib\portable-net4+sl5+netcore45+wp8" />
+    <file src="Comparers.Rx (NET4, Win8, SL5, WP8)\bin\Release\Comparers.Rx.xml" target="lib\portable-net4+sl5+netcore45+wp8" />
+    <file src="Comparers.Rx (NET4, Win8, SL5, WP8)\bin\Release\Comparers.Rx.pdb" target="lib\portable-net4+sl5+netcore45+wp8" />
+  </files>
+</package>

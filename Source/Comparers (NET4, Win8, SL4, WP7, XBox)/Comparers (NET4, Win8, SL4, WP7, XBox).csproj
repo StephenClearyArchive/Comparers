@@ -71,7 +71,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyVersion.cs">
-      <Link>AssemblyVersion.cs</Link>
+      <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\Comparers\AnonymousComparer.cs">
       <Link>Comparers\AnonymousComparer.cs</Link>
@@ -93,6 +93,9 @@
     </Compile>
     <Compile Include="..\Comparers\Comparers\IFullComparer.cs">
       <Link>Comparers\IFullComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Comparers\Comparers\Linq\EnumerableExtensions.cs">
+      <Link>Comparers\Linq\EnumerableExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Comparers\Comparers\Util\ComparableImplementations.cs">
       <Link>Comparers\Util\ComparableImplementations.cs</Link>

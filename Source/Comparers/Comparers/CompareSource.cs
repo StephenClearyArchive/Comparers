@@ -61,4 +61,39 @@ namespace Comparers
             return Compare<T>.OrderByDescending(selector, keyComparer, allowNulls);
         }
     }
+
+    /// <summary>
+    /// Provides sources for comparers, inferring the type being compared.
+    /// </summary>
+    public static class CompareSource
+    {
+        /// <summary>
+        /// Creates a source for a comparer of type <typeparamref name="T"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of objects being compared.</typeparam>
+        public static CompareSource<T> For<T>()
+        {
+            return new CompareSource<T>();
+        }
+
+        /// <summary>
+        /// Creates a source for a comparer of type <typeparamref name="T"/>. <paramref name="expression"/> is only used to infer the type <typeparamref name="T"/>; it is not evaluated.
+        /// </summary>
+        /// <typeparam name="T">The type of objects being compared.</typeparam>
+        /// <param name="expression">An expression of the type of objects being compared. The expression is only used to infer the type <typeparamref name="T"/>; it is not evaluated.</param>
+        public static CompareSource<T> For<T>(Func<T> expression)
+        {
+            return new CompareSource<T>();
+        }
+
+        /// <summary>
+        /// Creates a source for a comparer of type <typeparamref name="T"/>. <paramref name="expression"/> is only used to infer the type <typeparamref name="T"/>; it is not evaluated.
+        /// </summary>
+        /// <typeparam name="T">The type of objects being compared.</typeparam>
+        /// <param name="expression">An expression whose results are a sequence of objects being compared. The expression is only used to infer the type <typeparamref name="T"/>; it is not evaluated.</param>
+        public static CompareSource<T> ForElementsOf<T>(Func<IEnumerable<T>> expression)
+        {
+            return new CompareSource<T>();
+        }
+    }
 }

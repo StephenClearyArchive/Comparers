@@ -56,4 +56,29 @@ namespace EqualityComparers
             return EqualityCompare<T>.EquateBy(selector, keyComparer, allowNulls);
         }
     }
+
+    /// <summary>
+    /// Provides sources for equality comparers, inferring the type being compared.
+    /// </summary>
+    public static class EqualityCompareSource
+    {
+        /// <summary>
+        /// Creates a source for an equality comparer of type <typeparamref name="T"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of objects being compared.</typeparam>
+        public static EqualityCompareSource<T> For<T>()
+        {
+            return new EqualityCompareSource<T>();
+        }
+
+        /// <summary>
+        /// Creates a source for an equality comparer of type <typeparamref name="T"/>. <paramref name="instance"/> is only used to infer the type <typeparamref name="T"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of objects being compared.</typeparam>
+        /// <param name="instance">An instance of the type of objects being compared.</param>
+        public static EqualityCompareSource<T> For<T>(T instance)
+        {
+            return new EqualityCompareSource<T>();
+        }
+    }
 }

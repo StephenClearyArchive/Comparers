@@ -8,7 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BA90366A-16CE-4F8B-B466-E51C4DB6DE21}"
 	ProjectSection(SolutionItems) = preProject
 		Build.ps1 = Build.ps1
+		Comparers.Ix.nuspec = Comparers.Ix.nuspec
 		Comparers.nuspec = Comparers.nuspec
+		Comparers.Rx.nuspec = Comparers.Rx.nuspec
 		Comparers.vsmdi = Comparers.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
@@ -17,6 +19,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers (NET4, Win8, SL4, WP7, XBox)", "Comparers (NET4, Win8, SL4, WP7, XBox)\Comparers (NET4, Win8, SL4, WP7, XBox).csproj", "{238B510E-25EE-4F9D-80CE-BE9987EE8AD1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers (NET4, Win8, SL5, WP8, WPA)", "Comparers (NET4, Win8, SL5, WP8, WPA)\Comparers (NET4, Win8, SL5, WP8, WPA).csproj", "{E78601BD-CFEC-4222-8CBB-2A907AE8D81C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rx", "Rx", "{A065551D-DEFA-426B-998F-4D0693CFB3F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ix", "Ix", "{73E82F5E-916D-4772-8F89-7B3E6CAB9763}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers.Rx (NET4, Win8, SL5, WP8)", "Comparers.Rx (NET4, Win8, SL5, WP8)\Comparers.Rx (NET4, Win8, SL5, WP8).csproj", "{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers.Ix (NET45, Win8, WP8)", "Comparers.Ix (NET45, Win8, WP8)\Comparers.Ix (NET45, Win8, WP8).csproj", "{667FEAC6-39A2-4E35-80A8-B294F61C482B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comparers.Ix (NET4)", "Comparers.Ix (NET4)\Comparers.Ix (NET4).csproj", "{66D19D5D-3C85-4660-AD36-30B58369B840}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -52,8 +64,31 @@ Global
 		{E78601BD-CFEC-4222-8CBB-2A907AE8D81C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E78601BD-CFEC-4222-8CBB-2A907AE8D81C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E78601BD-CFEC-4222-8CBB-2A907AE8D81C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}.CodeAnalysis|Any CPU.ActiveCfg = Release|Any CPU
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}.CodeAnalysis|Any CPU.Build.0 = Release|Any CPU
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B}.CodeAnalysis|Any CPU.ActiveCfg = Release|Any CPU
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B}.CodeAnalysis|Any CPU.Build.0 = Release|Any CPU
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D19D5D-3C85-4660-AD36-30B58369B840}.CodeAnalysis|Any CPU.ActiveCfg = Release|Any CPU
+		{66D19D5D-3C85-4660-AD36-30B58369B840}.CodeAnalysis|Any CPU.Build.0 = Release|Any CPU
+		{66D19D5D-3C85-4660-AD36-30B58369B840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D19D5D-3C85-4660-AD36-30B58369B840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D19D5D-3C85-4660-AD36-30B58369B840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D19D5D-3C85-4660-AD36-30B58369B840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8EF771F-DE69-45B4-B07C-7790CB2E4BFF} = {A065551D-DEFA-426B-998F-4D0693CFB3F1}
+		{667FEAC6-39A2-4E35-80A8-B294F61C482B} = {73E82F5E-916D-4772-8F89-7B3E6CAB9763}
+		{66D19D5D-3C85-4660-AD36-30B58369B840} = {73E82F5E-916D-4772-8F89-7B3E6CAB9763}
 	EndGlobalSection
 EndGlobal
