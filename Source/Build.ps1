@@ -1,54 +1,13 @@
-Param($version = "0.0.0", $extraVersion = "")
 $ErrorActionPreference = "Stop"
 
-if ($version -eq "0.0.0") {
-  throw "Pass a version number to this script."
-}
-
-# Set environment variables for Visual Studio Command Prompt
-if (Test-Path 'C:\Program Files\Microsoft Visual Studio 11.0\VC') {
-  pushd 'C:\Program Files\Microsoft Visual Studio 11.0\VC'
-}
-else {
-  pushd 'C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC'
-}
-
-cmd /c “vcvarsall.bat&set” |
-foreach {
-  if ($_ -match “=”) {
-    $v = $_.split(“=”); set-item -force -path "ENV:\$($v[0])" -value "$($v[1])"
-  }
-}
-popd
-
-# Find NuGet.exe
-if (Test-Path '.nuget\nuget.exe') {
-  $nuget = Get-ChildItem '.nuget' -Filter 'nuget.exe'
-}
-else {
-  $nuget = Get-ChildItem '..\Util' -Filter 'nuget.exe'
-}
-
-# Write out version info for dll
-"using System.Reflection;`r`n[assembly: AssemblyVersion(`"$version`")]`r`n" > 'AssemblyVersion.cs'
-
 # Build solution
-$solution = Get-ChildItem '.' -Filter '*.sln'
-devenv $solution /rebuild Release | Write-Output
+$project = get-project
+$build = $project.DTE.Solution.SolutionBuild
+$oldConfiguration = $build.ActiveConfiguration
+$build.SolutionConfigurations.Item("Release").Activate()
+$build.Build($true)
+$oldConfiguration.Activate()
 
-# Create binaries directory if necessary
-if (!(Test-Path '..\Binaries')) {
-  New-Item '..\Binaries' -type directory | Out-Null
-}
-
-# Build NuGet package
-if ($extraVersion -Eq "") {
-  $fullVersion = $version
-} else {
-  $fullVersion = $version + "-" + $extraVersion
-}
-&$nuget.FullName pack -Symbols Comparers.nuspec -Version $version -OutputDirectory ..\Binaries
-&$nuget.FullName pack -Symbols Comparers.Rx.nuspec -Version $version -OutputDirectory ..\Binaries
-&$nuget.FullName pack -Symbols Comparers.Ix.nuspec -Version $version -OutputDirectory ..\Binaries
-
-"Built " + $nuspec.BaseName + " version $fullVersion"
+nuget pack -Symbols "Comparers\Comparers (NET4).csproj" -Prop Configuration=Release
+nuget pack -Symbols "Comparers.Ix (NET45, Win8, WP8)\Comparers.Ix (NET45, Win8, WP8).csproj" -Prop Configuration=Release
+nuget pack -Symbols "Comparers.Rx (NET4, Win8, SL5, WP8)\Comparers.Rx (NET4, Win8, SL5, WP8).csproj" -Prop Configuration=Release

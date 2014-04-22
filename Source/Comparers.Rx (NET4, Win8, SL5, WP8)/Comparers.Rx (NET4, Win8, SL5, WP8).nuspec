@@ -2,17 +2,18 @@
 <package>
   <metadata>
     <id>Comparers.Rx</id>
-    <version>$version$</version>
+    <version>3.1.0</version>
     <title>Comparers for Rx</title>
     <authors>Stephen Cleary</authors>
     <owners>Stephen Cleary</owners>
-    <summary>IComparer&lt;T&gt; and IEqualityComparer&lt;T&gt; implementations, extension methods, and comparable/equatable helper types.</summary>
-    <description>IComparer&lt;T&gt; and IEqualityComparer&lt;T&gt; implementations, extension methods, and comparable/equatable helper types.</description>
+    <summary>A fluent API for creating IComparer and IEqualityComparer implementations.</summary>
+    <description>A fluent API for creating IComparer and IEqualityComparer implementations.</description>
     <language>en-US</language>
     <projectUrl>http://comparers.codeplex.com/</projectUrl>
     <iconUrl>http://download.codeplex.com/Download?ProjectName=comparers&amp;DownloadId=404414</iconUrl>
     <tags>comparer rx icomparer icomparable iequatable iequalitycomparer net45 net40 win8 netcore45 sl5 wp8 nito</tags>
     <dependencies>
+      <dependency id="Comparers" version="3.1.0"/>
       <dependency id="Rx-Linq" version="2.2.2"/>
     </dependencies>
     <releaseNotes>
@@ -20,11 +21,11 @@
     </releaseNotes>
   </metadata>
   <files>
-    <file src="Readme.txt" target="" />
-    <file src="**\*.cs" target="src" />
+    <file src="..\Readme.txt" target="" />
+    <file src="..\**\*.cs" target="src" />
 
-    <file src="Comparers.Rx (NET4, Win8, SL5, WP8)\bin\Release\Comparers.Rx.dll" target="lib\portable-net4+sl5+netcore45+wp8" />
-    <file src="Comparers.Rx (NET4, Win8, SL5, WP8)\bin\Release\Comparers.Rx.xml" target="lib\portable-net4+sl5+netcore45+wp8" />
-    <file src="Comparers.Rx (NET4, Win8, SL5, WP8)\bin\Release\Comparers.Rx.pdb" target="lib\portable-net4+sl5+netcore45+wp8" />
+    <file src="bin\Release\Comparers.Rx.dll" target="lib\portable-net4+sl5+netcore45+wp8" />
+    <file src="bin\Release\Comparers.Rx.xml" target="lib\portable-net4+sl5+netcore45+wp8" />
+    <file src="bin\Release\Comparers.Rx.pdb" target="lib\portable-net4+sl5+netcore45+wp8" />
   </files>
 </package>

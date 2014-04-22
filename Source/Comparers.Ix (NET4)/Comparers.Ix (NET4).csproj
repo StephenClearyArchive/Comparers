@@ -47,9 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyVersion.cs">
-      <Link>Properties\AssemblyVersion.cs</Link>
-    </Compile>
     <Compile Include="..\Comparers.Ix %28NET45, Win8, WP8%29\IxEnumerableExtensions.cs">
       <Link>IxEnumerableExtensions.cs</Link>
     </Compile>
